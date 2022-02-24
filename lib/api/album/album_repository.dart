@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 abstract class IAlbumRepository {
   Future<Album> getTop4Albums();
-  Future<Album> getAlbumsArtist(String artistId);
+  Future<Album> getArtistAlbums(String artistId);
 }
 
 class AlbumRepository implements IAlbumRepository {
@@ -13,13 +13,13 @@ class AlbumRepository implements IAlbumRepository {
   @override
   Future<Album> getTop4Albums() async {
     const String entity = "album";
-    const String id = "335438840, 320569549, 941107698, 463996386";
+    const String id = "126411124, 320569549, 941107698, 463996386";
 
     final responseAlbum =
         await provider.getTop4Albums("/lookup?id=$id&entity=$entity&limit=1");
 
     responseAlbum.body!.items
-        ?.where((item) => item.collectionType?.toLowerCase() == "album");
+        ?.removeWhere((item) => item.collectionType?.toLowerCase() != "album");
 
     if (responseAlbum.status.hasError) {
       debugPrint("ERROR = ${responseAlbum.statusText!}");
@@ -30,12 +30,12 @@ class AlbumRepository implements IAlbumRepository {
   }
 
   @override
-  Future<Album> getAlbumsArtist(String artistId) async {
+  Future<Album> getArtistAlbums(String artistId) async {
     final responseAlbum = await provider
-        .getAlbumsArtist("/lookup?id=$artistId&entity=album&sort=recent");
+        .getArtistAlbums("/lookup?id=$artistId&entity=album&sort=recent");
 
     responseAlbum.body!.items
-        ?.where((item) => item.collectionType?.toLowerCase() == "album");
+        ?.removeWhere((item) => item.collectionType?.toLowerCase() != "album");
 
     if (responseAlbum.status.hasError) {
       debugPrint("ERROR = ${responseAlbum.statusText!}");

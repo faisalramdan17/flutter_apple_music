@@ -22,7 +22,7 @@ class Album {
         items: items ?? this.items,
       );
 
-  factory Album.fromJson(String str) => Album.fromMap(json.decode(str));
+  factory Album.fromJson(dynamic str) => Album.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 

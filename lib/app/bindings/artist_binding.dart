@@ -7,6 +7,6 @@ class ArtistBinding extends Bindings {
     Get.lazyPut<IArtistProvider>(() => ArtistProvider());
     Get.lazyPut<IArtistRepository>(
         () => ArtistRepository(provider: Get.find()));
-    Get.lazyPut(() => ArtistController(songRepository: Get.find()));
+    Get.lazyPut(() => ArtistController(artistRepository: Get.find()));
   }
 }

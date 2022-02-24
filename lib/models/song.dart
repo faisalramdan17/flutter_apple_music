@@ -22,7 +22,7 @@ class Song {
         items: items ?? this.items,
       );
 
-  factory Song.fromJson(String str) => Song.fromMap(json.decode(str));
+  factory Song.fromJson(dynamic str) => Song.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 

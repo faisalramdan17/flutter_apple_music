@@ -6,28 +6,33 @@ class SongController extends SuperController<Song> {
   SongController({required this.songRepository});
   static SongController to = Get.find();
   ISongRepository songRepository;
-  Song? searchArtistSongs, songsArtist;
+  // Song? searchArtistSongs, songsArtist;
   late TextEditingController searchTextCtrl;
 
   @override
   void onInit() async {
     super.onInit();
-
     searchTextCtrl = TextEditingController();
+    get7MostRecentSongs();
+  }
 
+  Future<void> get7MostRecentSongs() async {
     //Loading, Success, Error handle with 1 line of code
-    append(() => songRepository.get5MostRecentSongs);
+    return append(() => songRepository.get7MostRecentSongs);
   }
 
   Future<void> getSearchArtistSongs() async {
-    searchArtistSongs =
-        await songRepository.getSearchArtistSongs(searchTextCtrl.text);
-    update();
+    return append(
+        () => (() => songRepository.getSearchArtistSongs(searchTextCtrl.text)));
+    // searchArtistSongs =
+    //     await songRepository.getSearchArtistSongs(searchTextCtrl.text);
+    // update();
   }
 
-  Future<void> getSongsArtist(String id) async {
-    songsArtist = await songRepository.getSongsArtist(id);
-    update();
+  Future<void> getArtistSongs(String id) async {
+    return append(() => (() => songRepository.getArtistSongs(id)));
+    // songsArtist = await songRepository.getArtistSongs(id);
+    // update();
   }
 
   @override

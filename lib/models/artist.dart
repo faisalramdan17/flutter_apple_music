@@ -22,7 +22,7 @@ class Artist {
         results: results ?? this.results,
       );
 
-  factory Artist.fromJson(String str) => Artist.fromMap(json.decode(str));
+  factory Artist.fromJson(dynamic str) => Artist.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 

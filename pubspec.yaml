@@ -11,24 +11,45 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application. Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2 # https://pub.dev/packages/cupertino_icons
-
   # GetX is an extra-light and powerful solution for Flutter. It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.
   get: ^4.6.1  # https://pub.dev/packages/get
+
+  # Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
+  intl: ^0.17.0 # https://pub.dev/packages/intl
 
   # Package for Flutter apps that allows setting the web URL strategy with a single line of code. To remove the leading hash (#) from the URL of your Flutter web app
   url_strategy:  # https://pub.dev/packages/url_strategy
 
+  # A Flutter plugin for launching a URL. Supports iOS, Android, web, Windows, macOS, and Linux.
+  url_launcher: ^6.0.18 # https://pub.dev/packages/url_launcher
+
   # Lottie is a mobile library for Android and iOS that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile!
   lottie: ^1.2.2  # https://pub.dev/packages/lottie
+
+  # The google_fonts package for Flutter allows you to easily use any of the thousands of fonts available from fonts.google.com in your Flutter app.
+  google_fonts: ^2.2.0 # https://pub.dev/packages/google_fonts
+
+  # The Font Awesome Icon pack available as set of Flutter Icons.
+  font_awesome_flutter: ^9.2.0 # https://pub.dev/packages/font_awesome_flutter
+
+  # The following adds the Cupertino Icons font to your application. Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2 # https://pub.dev/packages/cupertino_icons
+
+  # A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations. Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
+  flutter_animated_dialog: ^2.0.1 # https://pub.dev/packages/flutter_animated_dialog
+
+  # A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin's SpinKit.
+  flutter_spinkit: ^5.1.0 # https://pub.dev/packages/flutter_spinkit
+
+  # A fade shimmer library to implement loading like latest facebook loading effect.
+  fade_shimmer: ^2.0.1 # https://pub.dev/packages/fade_shimmer
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
-  flutter_lints: ^1.0.0
+  flutter_lints: ^1.0.0 # https://pub.dev/packages/flutter_lints
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -42,9 +63,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lottie/
+    - assets/menu/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

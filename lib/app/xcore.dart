@@ -7,3 +7,7 @@ export 'bindings/song_binding.dart';
 export 'controllers/super/album_controller.dart';
 export 'controllers/super/artist_controller.dart';
 export 'controllers/super/song_controller.dart';
+
+// Super Controllers
+export 'views/home/home_view.dart';
+export 'views/search/search_view.dart';

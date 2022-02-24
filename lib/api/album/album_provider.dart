@@ -3,14 +3,15 @@ import 'package:get/get.dart';
 
 abstract class IAlbumProvider {
   Future<Response<Album>> getTop4Albums(String path);
-  Future<Response<Album>> getAlbumsArtist(String path);
+  Future<Response<Album>> getArtistAlbums(String path);
 }
 
 class AlbumProvider extends GetConnect implements IAlbumProvider {
   @override
   void onInit() {
     httpClient.baseUrl = ApiString.itunesURL;
-    httpClient.defaultDecoder = Album.fromMap;
+    httpClient.defaultContentType = "text/javascript; charset=utf-8";
+    httpClient.defaultDecoder = Album.fromJson;
   }
 
   @override
@@ -19,7 +20,7 @@ class AlbumProvider extends GetConnect implements IAlbumProvider {
   }
 
   @override
-  Future<Response<Album>> getAlbumsArtist(String path) {
+  Future<Response<Album>> getArtistAlbums(String path) {
     return get(path);
   }
 }

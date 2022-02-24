@@ -2,20 +2,21 @@ import 'package:kuncie_music/core.dart';
 import 'package:get/get.dart';
 
 abstract class ISongProvider {
-  Future<Response<Song>> get5MostRecentSongs(String path);
+  Future<Response<Song>> get7MostRecentSongs(String path);
   Future<Response<Song>> getSearchArtistSongs(String path);
-  Future<Response<Song>> getSongsArtist(String path);
+  Future<Response<Song>> getArtistSongs(String path);
 }
 
 class SongProvider extends GetConnect implements ISongProvider {
   @override
   void onInit() {
     httpClient.baseUrl = ApiString.itunesURL;
-    httpClient.defaultDecoder = Song.fromMap;
+    httpClient.defaultContentType = "text/javascript; charset=utf-8";
+    httpClient.defaultDecoder = Song.fromJson;
   }
 
   @override
-  Future<Response<Song>> get5MostRecentSongs(String path) {
+  Future<Response<Song>> get7MostRecentSongs(String path) {
     return get(path);
   }
 
@@ -25,7 +26,7 @@ class SongProvider extends GetConnect implements ISongProvider {
   }
 
   @override
-  Future<Response<Song>> getSongsArtist(String path) {
+  Future<Response<Song>> getArtistSongs(String path) {
     return get(path);
   }
 }

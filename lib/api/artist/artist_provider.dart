@@ -9,7 +9,7 @@ class ArtistProvider extends GetConnect implements IArtistProvider {
   @override
   void onInit() {
     httpClient.baseUrl = ApiString.itunesURL;
-    httpClient.defaultDecoder = Artist.fromMap;
+    httpClient.defaultDecoder = Artist.fromJson;
   }
 
   @override
