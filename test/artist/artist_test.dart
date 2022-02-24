@@ -9,8 +9,14 @@ import 'artist_mock.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => HttpOverrides.global = null);
-  final binding = BindingsBuilder(() {
-    Get.lazyPut<IArtistRepository>(() => MockRepository());
+  final bindingSuccess = BindingsBuilder(() {
+    Get.lazyPut<IArtistRepository>(() => MockRepositorySuccess());
+    Get.lazyPut<ArtistController>(
+        () => ArtistController(artistRepository: Get.find()));
+  });
+
+  final bindingFailure = BindingsBuilder(() {
+    Get.lazyPut<IArtistRepository>(() => MockRepositoryFailure());
     Get.lazyPut<ArtistController>(
         () => ArtistController(artistRepository: Get.find()));
   });
@@ -20,7 +26,7 @@ void main() {
     expect(Get.isPrepared<IArtistRepository>(), false);
 
     /// test you Binding class with BindingsBuilder
-    binding.builder();
+    bindingSuccess.builder();
 
     expect(Get.isPrepared<ArtistController>(), true);
     expect(Get.isPrepared<IArtistRepository>(), true);
@@ -28,34 +34,55 @@ void main() {
     Get.reset();
   });
 
-  test('Test Artist Controller when Call getArtist(id)', () async {
-    /// Controller can't be on memory
-    expect(() => Get.find<ArtistController>(),
-        throwsA(const m.TypeMatcher<String>()));
+  group("Test Artist Controller :", () {
+    group("Call getArtist(id)", () {
+      test('at MockRepositorySuccess', () async {
+        /// Controller can't be on memory
+        expect(() => Get.find<ArtistController>(tag: 'success'),
+            throwsA(const m.TypeMatcher<String>()));
 
-    /// build Binding
-    binding.builder();
+        /// binding will put the controller on memory
+        bindingSuccess.builder();
 
-    /// recover your controller
-    final controller = Get.find<ArtistController>();
+        /// recover your controller
+        final controller = Get.find<ArtistController>();
 
-    /// Call Function after find instance
-    await controller.getArtist("941107698");
+        /// check if onInit was called
+        expect(controller.initialized, true,
+            reason: "Controller is not Initialized");
 
-    /// await time request
-    await Future.delayed(const Duration(milliseconds: 50));
+        /// check initial Status
+        expect(controller.status.isLoading, true,
+            reason: "Status Controller is not Loading");
 
-    if (controller.status.isError) {
-      expect(controller.state, null,
-          reason: "State Controller is not Null when status is error");
-    }
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
 
-    if (controller.status.isSuccess) {
-      expect(controller.state!.resultCount, 1,
-          reason:
-              "State Controller resultCount is not 1 when status is success");
-    }
+        /// test if status is success
+        expect(controller.status.isSuccess, true,
+            reason: "Status Controller is not Success");
+        expect(controller.state!.resultCount, 1,
+            reason:
+                "State Controller resultCount is not 1 when status is success");
 
-    Get.reset();
+        Get.reset();
+      });
+      test('at MockRepositoryFailure', () async {
+        /// binding will put the controller on memory
+        bindingFailure.builder();
+
+        /// recover your controller
+        final controller = Get.find<ArtistController>();
+
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
+
+        expect(controller.status.isError, true,
+            reason: "Status Controller is not Error");
+        expect(controller.state, null, reason: "Status Controller is not Null");
+
+        Get.reset();
+      });
+    });
   });
 }

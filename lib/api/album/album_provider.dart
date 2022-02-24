@@ -15,12 +15,8 @@ class AlbumProvider extends GetConnect implements IAlbumProvider {
   }
 
   @override
-  Future<Response<Album>> getTop4Albums(String path) {
-    return get(path);
-  }
+  Future<Response<Album>> getTop4Albums(String path) => get(path);
 
   @override
-  Future<Response<Album>> getArtistAlbums(String path) {
-    return get(path);
-  }
+  Future<Response<Album>> getArtistAlbums(String path) => get(path);
 }

@@ -16,17 +16,11 @@ class SongProvider extends GetConnect implements ISongProvider {
   }
 
   @override
-  Future<Response<Song>> get7MostRecentSongs(String path) {
-    return get(path);
-  }
+  Future<Response<Song>> get7MostRecentSongs(String path) => get(path);
 
   @override
-  Future<Response<Song>> getSearchArtistSongs(String path) {
-    return get(path);
-  }
+  Future<Response<Song>> getSearchArtistSongs(String path) => get(path);
 
   @override
-  Future<Response<Song>> getArtistSongs(String path) {
-    return get(path);
-  }
+  Future<Response<Song>> getArtistSongs(String path) => get(path);
 }

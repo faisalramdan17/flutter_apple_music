@@ -10,6 +10,8 @@ class ArtistController extends SuperController<Artist> {
   @override
   void onInit() async {
     super.onInit();
+    String id = Get.arguments ?? "";
+    getArtist(id);
   }
 
   Future<void> getArtist(String id) async {

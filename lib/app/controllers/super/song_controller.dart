@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class SongController extends SuperController<Song> {
   SongController({required this.songRepository});
-  static SongController to = Get.find();
+  static SongController to = Get.find<SongController>();
   ISongRepository songRepository;
   // Song? searchArtistSongs, songsArtist;
   late TextEditingController searchTextCtrl;

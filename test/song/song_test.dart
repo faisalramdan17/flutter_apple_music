@@ -9,8 +9,15 @@ import 'song_mock.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setUpAll(() => HttpOverrides.global = null);
-  final binding = BindingsBuilder(() {
-    Get.lazyPut<ISongRepository>(() => MockRepository());
+
+  final bindingSuccess = BindingsBuilder(() {
+    Get.lazyPut<ISongRepository>(() => MockRepositorySuccess());
+    Get.lazyPut<SongController>(
+        () => SongController(songRepository: Get.find()));
+  });
+
+  final bindingFailure = BindingsBuilder(() {
+    Get.lazyPut<ISongRepository>(() => MockRepositoryFailure());
     Get.lazyPut<SongController>(
         () => SongController(songRepository: Get.find()));
   });
@@ -20,7 +27,7 @@ void main() {
     expect(Get.isPrepared<ISongRepository>(), false);
 
     /// test you Binding class with BindingsBuilder
-    binding.builder();
+    bindingSuccess.builder();
 
     expect(Get.isPrepared<SongController>(), true);
     expect(Get.isPrepared<ISongRepository>(), true);
@@ -28,93 +35,144 @@ void main() {
     Get.reset();
   });
 
-  test('Test Song Controller when Call onInit() => append()', () async {
-    /// Controller can't be on memory
-    expect(() => Get.find<SongController>(),
-        throwsA(const m.TypeMatcher<String>()));
+  group("Test Song Controller :", () {
+    group("Call onInit() => get7MostRecentSongs()", () {
+      test('at MockRepositorySuccess', () async {
+        /// Controller can't be on memory
+        expect(() => Get.find<SongController>(tag: 'success'),
+            throwsA(const m.TypeMatcher<String>()));
 
-    /// build Binding
-    binding.builder();
+        /// binding will put the controller on memory
+        bindingSuccess.builder();
 
-    /// recover your controller
-    final controller = Get.find<SongController>();
+        /// recover your controller
+        final controller = Get.find<SongController>();
 
-    /// check if onInit was called
-    expect(controller.initialized, true,
-        reason: "Controller is not Initialized");
+        /// check if onInit was called
+        expect(controller.initialized, true,
+            reason: "Controller is not Initialized");
 
-    /// check initial Status
-    expect(controller.status.isLoading, true,
-        reason: "Status Controller is not Loading");
+        /// check initial Status
+        expect(controller.status.isLoading, true,
+            reason: "Status Controller is not Loading");
 
-    /// await time request
-    await Future.delayed(const Duration(milliseconds: 50));
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
 
-    if (controller.status.isError) {
-      expect(controller.state, null,
-          reason: "State Controller is not Null when status is error");
-    }
+        /// test if status is success
+        expect(controller.status.isSuccess, true,
+            reason: "Status Controller is not Success");
+        expect(controller.state!.resultCount, 14,
+            reason:
+                "State Controller resultCount is not 14 when status is success");
+        expect(controller.state!.items!.length, 7,
+            reason:
+                "State Controller items length is not 7 when status is success");
 
-    if (controller.status.isSuccess) {
-      expect(controller.state!.resultCount, 14,
-          reason:
-              "State Controller resultCount is not 14 when status is success");
-    }
+        Get.reset();
+      });
+      test('at MockRepositoryFailure', () async {
+        /// binding will put the controller on memory
+        bindingFailure.builder();
 
-    Get.reset();
-  });
+        /// recover your controller
+        final controller = Get.find<SongController>();
 
-  test('Test Song Controller when Call getSearchArtistSongs()', () async {
-    /// build Binding
-    binding.builder();
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
 
-    /// recover your controller
-    final controller = Get.find<SongController>();
+        expect(controller.status.isError, true,
+            reason: "Status Controller is not Error");
+        expect(controller.state, null, reason: "Status Controller is not Null");
 
-    /// Call Function after find instance
-    await controller.getSearchArtistSongs();
+        Get.reset();
+      });
+    });
+    group("Call getSearchArtistSongs()", () {
+      test('at MockRepositorySuccess', () async {
+        /// binding will put the controller on memory
+        bindingSuccess.builder();
 
-    /// await time request
-    await Future.delayed(const Duration(milliseconds: 50));
+        /// recover your controller
+        final controller = Get.find<SongController>();
 
-    if (controller.status.isError) {
-      expect(controller.state, null,
-          reason: "State Controller is not Null when status is error");
-    }
+        /// Call Function after find instance
+        await controller.getSearchArtistSongs();
 
-    if (controller.status.isSuccess) {
-      expect(controller.state!.resultCount, 50,
-          reason:
-              "State Controller resultCount is not 50 when status is success");
-    }
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
 
-    Get.reset();
-  });
+        /// test if status is success
+        expect(controller.status.isSuccess, true,
+            reason: "Status Controller is not Success");
+        expect(controller.state!.resultCount, 50,
+            reason:
+                "State Controller resultCount is not 50 when status is success");
 
-  test('Test Song Controller when Call getArtistSongs(id)', () async {
-    /// build Binding
-    binding.builder();
+        Get.reset();
+      });
+      test('at MockRepositoryFailure', () async {
+        /// binding will put the controller on memory
+        bindingFailure.builder();
 
-    /// recover your controller
-    final controller = Get.find<SongController>();
+        /// recover your controller
+        final controller = Get.find<SongController>();
 
-    /// Call Function after find instance
-    await controller.getArtistSongs("941107698");
+        /// Call Function after find instance
+        await controller.getSearchArtistSongs();
 
-    /// await time request
-    await Future.delayed(const Duration(milliseconds: 50));
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
 
-    if (controller.status.isError) {
-      expect(controller.state, null,
-          reason: "State Controller is not Null when status is error");
-    }
+        expect(controller.status.isError, true,
+            reason: "Status Controller is not Error");
+        expect(controller.state, null, reason: "Status Controller is not Null");
 
-    if (controller.status.isSuccess) {
-      expect(controller.state!.resultCount, 7,
-          reason:
-              "State Controller resultCount is not 7 when status is success");
-    }
+        Get.reset();
+      });
+    });
+    group("Call getArtistSongs(id)", () {
+      test('at MockRepositorySuccess', () async {
+        /// binding will put the controller on memory
+        bindingSuccess.builder();
 
-    Get.reset();
+        /// recover your controller
+        final controller = Get.find<SongController>();
+
+        /// Call Function after find instance
+        await controller.getArtistSongs("941107698");
+
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
+
+        /// test if status is success
+        expect(controller.status.isSuccess, true,
+            reason: "Status Controller is not Success");
+        expect(controller.state!.resultCount, 7,
+            reason:
+                "State Controller resultCount is not 7 when status is success");
+
+        Get.reset();
+      });
+      test('at MockRepositoryFailure', () async {
+        /// binding will put the controller on memory
+        bindingFailure.builder();
+
+        /// recover your controller
+        final controller = Get.find<SongController>();
+
+        /// Call Function after find instance
+        await controller.getArtistSongs("941107698");
+
+        /// await time request
+        await Future.delayed(const Duration(milliseconds: 100));
+
+        expect(controller.status.isError, true,
+            reason: "Status Controller is not Error");
+        expect(controller.state, null, reason: "Status Controller is not Null");
+
+        Get.reset();
+      });
+    });
   });
 }

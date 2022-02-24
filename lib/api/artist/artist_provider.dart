@@ -13,7 +13,5 @@ class ArtistProvider extends GetConnect implements IArtistProvider {
   }
 
   @override
-  Future<Response<Artist>> getArtist(String path) {
-    return get(path);
-  }
+  Future<Response<Artist>> getArtist(String path) => get(path);
 }
