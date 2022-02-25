@@ -29,6 +29,9 @@ dependencies:
   # The google_fonts package for Flutter allows you to easily use any of the thousands of fonts available from fonts.google.com in your Flutter app.
   google_fonts: ^2.2.0 # https://pub.dev/packages/google_fonts
 
+  # Iconsax for flutter (1000+ icons 6 diferent styles, total 6000+ icons). the official icons of the Vuesax framework
+  iconsax: ^0.0.8 # https://pub.dev/packages/iconsax
+
   # The Font Awesome Icon pack available as set of Flutter Icons.
   font_awesome_flutter: ^9.2.0 # https://pub.dev/packages/font_awesome_flutter
 
@@ -43,6 +46,9 @@ dependencies:
 
   # A fade shimmer library to implement loading like latest facebook loading effect.
   fade_shimmer: ^2.0.1 # https://pub.dev/packages/fade_shimmer
+
+  # A flutter package for creating badges. Badges can be used for an additional marker for any widget, e.g. show a number of items in a shopping cart.
+  badges: ^2.0.2 # https://pub.dev/packages/badges
 
 dev_dependencies:
   flutter_test:

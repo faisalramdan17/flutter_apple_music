@@ -10,18 +10,20 @@ class AppPages {
   static final routes = [
     GetPage(
       name: Routes.HOME,
-      page: () => const HomeView(),
-      binding: BindingsBuilder(() {}),
-      bindings: [],
+      page: () => const MobileMenuView(),
+      bindings: [
+        MobileMenuBinding(),
+        SongBinding(),
+        AlbumBinding(),
+      ],
       // participatesInRootNavigator: true,
       // preventDuplicates: true,
-      children: [
-        GetPage(
-          name: Routes.SEARCH,
-          page: () => const SearchView(),
-          binding: BindingsBuilder(() {}),
-          bindings: [],
-        ),
+    ),
+    GetPage(
+      name: Routes.SEARCH,
+      page: () => const MobileMenuView(initialValue: 1),
+      bindings: [
+        SongBinding(),
       ],
     ),
   ];

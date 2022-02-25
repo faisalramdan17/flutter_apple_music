@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import '../dialogs/confirm_dialog.dart';
-import '../dialogs/info_dialog.dart';
 import 'progress_hub.dart';
 
 class XOpenDialog {

@@ -13,7 +13,7 @@ class AlbumRepository implements IAlbumRepository {
   @override
   Future<Album> getTop4Albums() async {
     const String entity = "album";
-    const String id = "126411124, 320569549, 941107698, 463996386";
+    const String id = "126411124, 320569549, 1062085272, 463996386";
 
     final responseAlbum =
         await provider.getTop4Albums("/lookup?id=$id&entity=$entity&limit=1");

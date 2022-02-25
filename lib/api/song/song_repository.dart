@@ -15,7 +15,7 @@ class SongRepository implements ISongRepository {
   Future<Song> get7MostRecentSongs() async {
     const String entity = "song";
     const String id =
-        "126411124, 1062085272, 13493906, 320569549, 941107698, 463996386, 206384513";
+        "320569549, 1062085272, 13493906, 941107698, 463996386, 206384513, 126411124";
 
     final responseSong = await provider.get7MostRecentSongs(
         "/lookup?id=$id&entity=$entity&limit=1&sort=recent");
