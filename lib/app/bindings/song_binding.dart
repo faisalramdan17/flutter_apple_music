@@ -1,5 +1,4 @@
 import 'package:kuncie_music/core.dart';
-import 'package:get/get.dart';
 
 class SongBinding extends Bindings {
   @override

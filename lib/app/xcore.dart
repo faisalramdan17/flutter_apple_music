@@ -11,6 +11,7 @@ export 'controllers/data/song_controller.dart';
 
 /// View Controllers
 export 'controllers/others/mobile_menu_controller.dart';
+export 'controllers/others/playing_song_controller.dart';
 
 /// Views
 export 'views/mobile_menu_view.dart';

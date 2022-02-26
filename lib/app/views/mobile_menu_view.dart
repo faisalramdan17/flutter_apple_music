@@ -16,6 +16,7 @@ class MobileMenuView extends GetView<MobileMenuController> {
           SearchView(),
         ],
       ),
+      bottomSheet: const PlayingSongPanel(),
       bottomNavigationBar: ValueBuilder<int?>(
         initialValue: initialValue,
         builder: (value, updateFn) => XBottomBar(
@@ -29,7 +30,7 @@ class MobileMenuView extends GetView<MobileMenuController> {
             );
             updateFn(tab);
           },
-          elevation: 8,
+          elevation: 0.5,
           hasInk: true, //new, gives a cute ink effect
           items: controller.navigationItems,
         ),

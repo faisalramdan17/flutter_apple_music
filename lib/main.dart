@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp.router(
       title: 'Kuncie Apple Music',
       getPages: AppPages.routes,
+      initialBinding: BindingsBuilder(() {
+        Get.put<PlayingSongController>(PlayingSongController(),
+            permanent: true);
+      }),
       theme: ThemeData(
         // Define the default brightness and colors.
         brightness: Brightness.light,

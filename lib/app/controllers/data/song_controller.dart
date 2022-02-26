@@ -27,7 +27,6 @@ class SongController extends SuperController<Song> {
   Future<void> searchArtistSongs() async {
     searchedSongs =
         await songRepository.getSearchArtistSongs(searchTextCtrl.text);
-
     update();
   }
 
