@@ -15,7 +15,7 @@ class TopRecentSongs extends GetView<SongController> {
           (state) {
             return ListView.builder(
               padding: const EdgeInsets.only(
-                  left: 3.0, right: 3.0, top: 10.0, bottom: 23),
+                  left: 3.0, right: 3.0, top: 10.0, bottom: 100),
               primary: false,
               shrinkWrap: true,
               itemCount: state!.items?.length ?? 0,

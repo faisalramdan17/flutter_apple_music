@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kuncie_music/core.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:audio_service/audio_service.dart';
 
-void main() async {
+Future<void> main() async {
   // Here we set the URL strategy for our web app.
   // It is safe to call this function when running on mobile or desktop as well.
   setPathUrlStrategy();
+
+  // Get.put<PlayingSongController>(PlayingSongController(), permanent: true);
 
   runApp(const MyApp());
 }
@@ -22,8 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Kuncie Apple Music',
       getPages: AppPages.routes,
       initialBinding: BindingsBuilder(() {
-        Get.put<PlayingSongController>(PlayingSongController(),
-            permanent: true);
+        Get.put(PlayingSongController(), permanent: true);
       }),
       theme: ThemeData(
         // Define the default brightness and colors.

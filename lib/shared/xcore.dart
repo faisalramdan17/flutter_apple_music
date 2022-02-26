@@ -13,6 +13,7 @@ export 'dialogs/info_dialog.dart';
 export 'extensions/string_extension.dart';
 
 /// Shared Utils
+export 'utils/audio_player_handler.dart';
 export 'utils/converter.dart';
 export 'utils/helper.dart';
 export 'utils/open_dialog.dart';

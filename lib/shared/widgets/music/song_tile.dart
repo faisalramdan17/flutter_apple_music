@@ -9,7 +9,7 @@ class SongTile extends GetView<PlayingSongController> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.createPlayedSong(item);
+        controller.addPlayingSong(item);
       },
       child: controller.obx((state) {
         bool _isSelectedSong = item.trackId == state?.trackId;

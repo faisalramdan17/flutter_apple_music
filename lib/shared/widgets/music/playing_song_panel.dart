@@ -66,7 +66,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                     Text(
                                       state.trackName?.toTitleCase() ?? "-",
                                       style: const TextStyle(
-                                        fontSize: 14,
+                                        fontSize: 13.5,
                                         fontWeight: FontWeight.w600,
                                         letterSpacing: 0.7,
                                       ),
@@ -77,7 +77,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                     Text(
                                       state.artistName?.toTitleCase() ?? "-",
                                       style: const TextStyle(
-                                        fontSize: 13,
+                                        fontSize: 12.5,
                                         color: Color(0xFF58595C),
                                         letterSpacing: 1,
                                       ),
@@ -87,31 +87,48 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                   ],
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: () {},
-                                child: const Padding(
-                                  padding: EdgeInsets.only(right: 16.0),
-                                  child: Icon(
-                                    Iconsax.play,
-                                    color: Colors.blue,
-                                  ),
-                                ),
+                              StreamBuilder<bool>(
+                                stream: controller.audioHandler.playbackState
+                                    .map((state) => state.playing)
+                                    .distinct(),
+                                builder: (context, snapshot) {
+                                  final isPlaying = snapshot.data ?? false;
+                                  return GestureDetector(
+                                    onTap: isPlaying
+                                        ? controller.audioHandler.pause
+                                        : controller.audioHandler.play,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 17),
+                                      child: Icon(
+                                        isPlaying
+                                            ? Iconsax.pause
+                                            : Iconsax.play,
+                                        size: isPlaying ? 22 : 25,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
                             ],
                           ),
                         ),
-                        // const SizedBox(height: 4),
                         ValueBuilder<double?>(
                           initialValue: 50,
                           builder: (_value, updateFn) {
-                            return SliderPlayingSong(
-                              value: _value!,
-                              min: 0,
-                              max: 100,
-                              divisions: 100,
-                              label: "$_value",
-                              onChanged: (value) {
-                                updateFn(value);
+                            return StreamBuilder<MediaState>(
+                              stream: controller.mediaStateStream,
+                              builder: (context, snapshot) {
+                                final mediaState = snapshot.data;
+                                return SliderPlayingSong(
+                                  duration: mediaState?.mediaItem?.duration ??
+                                      Duration.zero,
+                                  position:
+                                      mediaState?.position ?? Duration.zero,
+                                  onChangeEnd: (newPosition) {
+                                    controller.audioHandler.seek(newPosition);
+                                  },
+                                );
                               },
                             );
                           },

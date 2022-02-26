@@ -20,7 +20,7 @@ class SongRepository implements ISongRepository {
     final responseSong = await provider
         .getRecentTopSongs("/lookup?id=$id&entity=$entity&limit=1&sort=recent");
 
-    responseSong.body!.items
+    responseSong.body?.items
         ?.removeWhere((item) => item.kind?.toLowerCase() != "song");
 
     if (responseSong.status.hasError) {

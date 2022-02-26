@@ -10,7 +10,7 @@ class SearchBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: const EdgeInsets.only(top: 10, bottom: 17),
+      padding: const EdgeInsets.only(top: 10, bottom: 100),
       sliver: GetBuilder<SongController>(
         builder: (state) {
           if (state.searchedSongs == null) {

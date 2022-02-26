@@ -19,7 +19,7 @@ class AlbumRepository implements IAlbumRepository {
     final responseAlbum =
         await provider.getTopAlbums("/lookup?id=$id&entity=$entity&limit=1");
 
-    responseAlbum.body!.items
+    responseAlbum.body?.items
         ?.removeWhere((item) => item.collectionType?.toLowerCase() != "album");
 
     if (responseAlbum.status.hasError) {
@@ -35,7 +35,7 @@ class AlbumRepository implements IAlbumRepository {
     final responseAlbum = await provider
         .getArtistAlbums("/lookup?id=$artistId&entity=album&sort=recent");
 
-    responseAlbum.body!.items
+    responseAlbum.body?.items
         ?.removeWhere((item) => item.collectionType?.toLowerCase() != "album");
 
     if (responseAlbum.status.hasError) {
