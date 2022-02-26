@@ -21,7 +21,7 @@ class SongController extends SuperController<Song> {
     return append(() => songRepository.get7MostRecentSongs);
   }
 
-  Future<void> getSearchArtistSongs() async {
+  Future<void> searchArtistSongs() async {
     return append(
         () => (() => songRepository.getSearchArtistSongs(searchTextCtrl.text)));
     // searchArtistSongs =

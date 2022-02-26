@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
+import 'package:kuncie_music/core.dart';
 
 const double _kActiveFontSize = 14.0;
 const double _kBottomMargin = 8.0;
@@ -429,26 +430,6 @@ class _BottomNavigationBarState extends State<XBottomBar>
                 borderRadius: widget.borderRadius ?? BorderRadius.zero,
               ));
   }
-}
-
-class XBottomBarItem {
-  const XBottomBarItem({
-    required this.icon,
-    required this.activeIcon,
-    this.title,
-    this.showBadge = false,
-    this.badgeColor = Colors.black,
-    this.badge,
-    this.backgroundColor,
-  });
-
-  final Widget icon;
-  final Widget? activeIcon;
-  final Widget? title;
-  final bool showBadge;
-  final Color badgeColor;
-  final Widget? badge; // The content of badge. Usually Text or Icon.
-  final Color? backgroundColor;
 }
 
 class _BubbleBottomBarClipper extends CustomClipper<Path> {

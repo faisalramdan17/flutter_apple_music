@@ -50,6 +50,13 @@ dependencies:
   # A flutter package for creating badges. Badges can be used for an additional marker for any widget, e.g. show a number of items in a shopping cart.
   badges: ^2.0.2 # https://pub.dev/packages/badges
 
+  # Bar indicator made of a series of selected and unselected steps
+  step_progress_indicator: ^1.0.2 # https://pub.dev/packages/step_progress_indicator
+
+  just_audio: ^0.9.20
+  audio_service: ^0.18.3
+  just_waveform: ^0.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

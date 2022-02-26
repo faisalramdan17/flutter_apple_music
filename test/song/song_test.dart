@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
 import 'package:kuncie_music/core.dart';
 import 'package:matcher/matcher.dart' as m;
 import 'song_mock.dart';
@@ -97,7 +96,7 @@ void main() {
         final controller = Get.find<SongController>();
 
         /// Call Function after find instance
-        await controller.getSearchArtistSongs();
+        await controller.searchArtistSongs();
 
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
@@ -119,7 +118,7 @@ void main() {
         final controller = Get.find<SongController>();
 
         /// Call Function after find instance
-        await controller.getSearchArtistSongs();
+        await controller.searchArtistSongs();
 
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));

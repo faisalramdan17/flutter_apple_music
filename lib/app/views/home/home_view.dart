@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'components/title_header.dart';
+import 'components/home_appbar.dart';
 import 'components/top_albums.dart';
 import 'components/top_recent_songs.dart';
 
@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              TitleHeader(),
+              HomeAppBar(),
               TopAlbums(),
               TopRecentSongs(),
             ],

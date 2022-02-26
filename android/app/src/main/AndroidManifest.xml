@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.codingyourlife.kuncie_music">
    <application
-        android:label="kuncie_music"
+        android:label="Kuncie Music"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
