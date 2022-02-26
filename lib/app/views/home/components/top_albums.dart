@@ -17,7 +17,7 @@ class TopAlbums extends GetView<AlbumController> {
               padding: const EdgeInsets.only(
                   left: 16.0, right: 16.0, top: 10.0, bottom: 23),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 3,
                 mainAxisSpacing: 15.0,
                 crossAxisSpacing: 15.0,
               ),

@@ -155,11 +155,16 @@ class XProgressHud extends PopupRoute {
               //   //     valueColor: new AlwaysStoppedAnimation(progressColor)),
               // ),
               Center(
-                child: SpinKitSpinningLines(
+                child: SpinKitWave(
                   color: Get.context!.theme.primaryColor,
                   duration: const Duration(milliseconds: 1500),
                   size: 35.0,
                 ),
+                // child: SpinKitSpinningLines(
+                //   color: Get.context!.theme.primaryColor,
+                //   duration: const Duration(milliseconds: 1500),
+                //   size: 35.0,
+                // ),
                 // child: SpinKitFadingCube(
                 //   color: Get.context?.theme.primaryColor,
                 //   duration: const Duration(milliseconds: 1500),

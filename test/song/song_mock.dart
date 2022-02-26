@@ -5,7 +5,7 @@ import 'data/search_artist_songs.dart';
 
 class MockRepositorySuccess implements ISongRepository {
   @override
-  Future<Song> get7MostRecentSongs() async {
+  Future<Song> getRecentTopSongs() async {
     var song = Song.fromMap(mostRecentSongs);
     song.items?.removeWhere((item) => item.kind?.toLowerCase() != "song");
     return song;
@@ -22,7 +22,7 @@ class MockRepositorySuccess implements ISongRepository {
 
 class MockRepositoryFailure implements ISongRepository {
   @override
-  Future<Song> get7MostRecentSongs() async => Future<Song>.error('error');
+  Future<Song> getRecentTopSongs() async => Future<Song>.error('error');
 
   @override
   Future<Song> getArtistSongs(String artistId) async =>

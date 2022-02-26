@@ -4,7 +4,7 @@ import 'data/top_4_albums.dart';
 
 class MockRepositorySuccess implements IAlbumRepository {
   @override
-  Future<Album> getTop4Albums() async {
+  Future<Album> getTopAlbums() async {
     var album = Album.fromMap(top4Albums);
     album.items
         ?.removeWhere((item) => item.collectionType?.toLowerCase() != "album");
@@ -18,7 +18,7 @@ class MockRepositorySuccess implements IAlbumRepository {
 
 class MockRepositoryFailure implements IAlbumRepository {
   @override
-  Future<Album> getTop4Albums() async => Future<Album>.error('error');
+  Future<Album> getTopAlbums() async => Future<Album>.error('error');
 
   @override
   Future<Album> getArtistAlbums(String artistId) async =>

@@ -2,7 +2,7 @@ import 'package:kuncie_music/core.dart';
 import 'package:get/get.dart';
 
 abstract class IAlbumProvider {
-  Future<Response<Album>> getTop4Albums(String path);
+  Future<Response<Album>> getTopAlbums(String path);
   Future<Response<Album>> getArtistAlbums(String path);
 }
 
@@ -15,7 +15,7 @@ class AlbumProvider extends GetConnect implements IAlbumProvider {
   }
 
   @override
-  Future<Response<Album>> getTop4Albums(String path) => get(path);
+  Future<Response<Album>> getTopAlbums(String path) => get(path);
 
   @override
   Future<Response<Album>> getArtistAlbums(String path) => get(path);

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
@@ -104,7 +105,7 @@ class XAvatarCircle extends StatelessWidget {
                   width: width,
                   height: width,
                   startingAngle: 2.3,
-                  selectedColor: color ?? Colors.yellow[700],
+                  selectedColor: color ?? Get.theme.primaryColor,
                   unselectedColor: Colors.white,
                   roundedCap: (_, __) => true,
                   child: Center(
@@ -130,7 +131,7 @@ class XAvatarCircle extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 6, vertical: 2.2),
                     borderSide: const BorderSide(color: Colors.white, width: 2),
-                    badgeColor: color ?? Colors.yellow[600]!,
+                    badgeColor: color ?? Get.theme.primaryColor,
                     borderRadius: BorderRadius.circular(13),
                     elevation: 0,
                     badgeContent: Text(

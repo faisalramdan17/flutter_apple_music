@@ -2,7 +2,7 @@ import 'package:kuncie_music/core.dart';
 import 'package:flutter/foundation.dart';
 
 abstract class IAlbumRepository {
-  Future<Album> getTop4Albums();
+  Future<Album> getTopAlbums();
   Future<Album> getArtistAlbums(String artistId);
 }
 
@@ -11,12 +11,13 @@ class AlbumRepository implements IAlbumRepository {
   final IAlbumProvider provider;
 
   @override
-  Future<Album> getTop4Albums() async {
+  Future<Album> getTopAlbums() async {
     const String entity = "album";
-    const String id = "126411124, 320569549, 1062085272, 463996386";
+    const String id =
+        "951996691,  397934108, 126411124, 252239625, 1062085272, 463996386";
 
     final responseAlbum =
-        await provider.getTop4Albums("/lookup?id=$id&entity=$entity&limit=1");
+        await provider.getTopAlbums("/lookup?id=$id&entity=$entity&limit=1");
 
     responseAlbum.body!.items
         ?.removeWhere((item) => item.collectionType?.toLowerCase() != "album");

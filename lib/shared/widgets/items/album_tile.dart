@@ -13,7 +13,7 @@ class AlbumTile extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: NetworkImage(item.artworkUrl100!),
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
         borderRadius: BorderRadius.circular(11),
       ),
@@ -49,7 +49,7 @@ class AlbumTile extends StatelessWidget {
                       Text(
                         item.collectionName?.toTitleCase() ?? "-",
                         style: const TextStyle(
-                          fontSize: 14.0,
+                          fontSize: 12.0,
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
@@ -75,17 +75,6 @@ class AlbumTile extends StatelessWidget {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: EdgeInsets.only(right: 8, top: 8.0),
-            //   child: SizedBox(
-            //     height: 50.0,
-            //     child: Icon(
-            //       Icons.play_arrow,
-            //       color: Colors.white,
-            //       size: 20.0,
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

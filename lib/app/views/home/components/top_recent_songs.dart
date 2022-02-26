@@ -24,6 +24,8 @@ class TopRecentSongs extends GetView<SongController> {
               ),
             );
           },
+          onEmpty: Container(),
+          onError: (error) => Center(child: Text(error ?? "")),
           onLoading: const Center(child: CircularProgressIndicator()),
         ),
       ],

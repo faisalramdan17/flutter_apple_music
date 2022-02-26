@@ -12,6 +12,12 @@ export 'dialogs/info_dialog.dart';
 /// Shared Extensions
 export 'extensions/string_extension.dart';
 
+/// Shared Utils
+export 'utils/converter.dart';
+export 'utils/helper.dart';
+export 'utils/open_dialog.dart';
+export 'utils/progress_hub.dart';
+
 /// Shared Widgets
 export 'widgets/items/album_tile.dart';
 export 'widgets/items/song_tile.dart';

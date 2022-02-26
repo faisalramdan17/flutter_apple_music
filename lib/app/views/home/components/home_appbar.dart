@@ -14,10 +14,11 @@ class HomeAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const XAvatarCircle(
+          XAvatarCircle(
             photoURL: "https://avatars.githubusercontent.com/u/44645967?v=4",
-            progress: 70,
+            progress: 77,
             width: 60,
+            color: Colors.blue[400],
           ),
           const Text(
             "Kuncie Apple Music",

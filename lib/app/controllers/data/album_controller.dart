@@ -1,5 +1,4 @@
 import 'package:kuncie_music/core.dart';
-import 'package:get/get.dart';
 
 class AlbumController extends SuperController<Album> {
   AlbumController({required this.albumRepository});
@@ -11,12 +10,12 @@ class AlbumController extends SuperController<Album> {
   void onInit() async {
     super.onInit();
 
-    getTop4Albums();
+    getTopAlbums();
   }
 
-  Future<void> getTop4Albums() async {
+  Future<void> getTopAlbums() async {
     //Loading, Success, Error handle with 1 line of code
-    return append(() => albumRepository.getTop4Albums);
+    return append(() => albumRepository.getTopAlbums);
   }
 
   Future<void> getArtistAlbums(String id) async {

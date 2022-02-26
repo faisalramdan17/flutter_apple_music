@@ -2,7 +2,7 @@ import 'package:kuncie_music/core.dart';
 import 'package:get/get.dart';
 
 abstract class ISongProvider {
-  Future<Response<Song>> get7MostRecentSongs(String path);
+  Future<Response<Song>> getRecentTopSongs(String path);
   Future<Response<Song>> getSearchArtistSongs(String path);
   Future<Response<Song>> getArtistSongs(String path);
 }
@@ -16,7 +16,7 @@ class SongProvider extends GetConnect implements ISongProvider {
   }
 
   @override
-  Future<Response<Song>> get7MostRecentSongs(String path) => get(path);
+  Future<Response<Song>> getRecentTopSongs(String path) => get(path);
 
   @override
   Future<Response<Song>> getSearchArtistSongs(String path) => get(path);

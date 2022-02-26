@@ -85,41 +85,17 @@ class InfoDialog extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
                 child: XActionButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    label: Text(
-                      labelButton ?? "Ok, Thanks!",
-                      style: TextStyle(
-                        color: colorTextButton,
-                        fontSize: fontSizeButton ?? 16,
-                      ),
-                    )),
-                // child: InkWell(
-                //   onTap: onPressed,
-                //   child: Container(
-                //     height: 45,
-                //     padding: const EdgeInsets.symmetric(horizontal: 15),
-                //     decoration: BoxDecoration(
-                //       color: colorButton ?? Get.theme.primaryColor,
-                //       borderRadius: const BorderRadius.all(
-                //         Radius.circular(7),
-                //       ),
-                //       border: Border.all(
-                //         color: Get.theme.primaryColor,
-                //         width: 1,
-                //       ),
-                //     ),
-                //     child: Center(
-                //         child: Text(
-                //       labelButton ?? "Ok, Thanks!",
-                //       style: TextStyle(
-                //         color: colorTextButton,
-                //         fontSize: fontSizeButton ?? 16,
-                //       ),
-                //     )),
-                //   ),
-                // ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  label: Text(
+                    labelButton ?? "Ok, Thanks!",
+                    style: TextStyle(
+                      color: colorTextButton,
+                      fontSize: fontSizeButton ?? 16,
+                    ),
+                  ),
+                ),
               )
             ],
           ),
