@@ -25,18 +25,22 @@ class PreferencesBoard extends StatelessWidget {
   }
 
   Widget _songLinkButton(NowPlayingController controller) {
-    return IconButton(
-      onPressed: () => launch(controller.state!.trackViewUrl!),
-      icon: const Icon(
-        Iconsax.music_circle,
-        size: 37,
-        color: Color(0xFF7B92CA),
+    return InkWell(
+      onTap: () => launch(controller.state!.trackViewUrl!),
+      borderRadius: BorderRadius.circular(70),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Icon(
+          Iconsax.music_circle,
+          size: 37,
+          color: Color(0xFF7B92CA),
+        ),
       ),
     );
   }
 
   Widget _repeatButton(NowPlayingController controller) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         if (controller.repeatMode == AudioServiceRepeatMode.one) {
           controller.setRepeatMode(
@@ -48,23 +52,31 @@ class PreferencesBoard extends StatelessWidget {
           );
         }
       },
-      child: Icon(
-        Iconsax.repeate_one,
-        size: 37,
-        color: controller.repeatMode == AudioServiceRepeatMode.one
-            ? Get.theme.primaryColor
-            : Colors.grey,
+      borderRadius: BorderRadius.circular(70),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Icon(
+          Iconsax.repeate_one,
+          size: 37,
+          color: controller.repeatMode == AudioServiceRepeatMode.one
+              ? Get.theme.primaryColor
+              : Colors.grey,
+        ),
       ),
     );
   }
 
   Widget _albumLinkButton(NowPlayingController controller) {
-    return IconButton(
-      onPressed: () => launch(controller.state!.collectionViewUrl!),
-      icon: const Icon(
-        Iconsax.music_playlist,
-        size: 37,
-        color: Color(0xFF7B92CA),
+    return InkWell(
+      onTap: () => launch(controller.state!.collectionViewUrl!),
+      borderRadius: BorderRadius.circular(70),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Icon(
+          Iconsax.music_playlist,
+          size: 37,
+          color: Color(0xFF7B92CA),
+        ),
       ),
     );
   }

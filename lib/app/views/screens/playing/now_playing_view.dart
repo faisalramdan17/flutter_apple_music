@@ -12,8 +12,6 @@ class NowPlayingView extends GetView<NowPlayingController> {
   Widget build(BuildContext context) {
     return Material(
       child: controller.obx((state) {
-        if (state?.trackId == null) return const SizedBox();
-
         return SafeArea(
           top: false,
           child: Column(
@@ -96,7 +94,9 @@ class NowPlayingView extends GetView<NowPlayingController> {
               Flexible(
                 flex: 2,
                 child: GestureDetector(
-                  onTap: () => Get.back(),
+                  onTap: () => GetPlatform.isWeb
+                      ? Get.offNamed(Routes.HOME)
+                      : Get.back(),
                   child: HideIcon(
                     color: Get.theme.primaryColor,
                   ),

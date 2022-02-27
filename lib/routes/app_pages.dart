@@ -26,6 +26,14 @@ class AppPages {
       ],
     ),
     GetPage(
+      name: Routes.NOW_PLAYING,
+      page: () => const NowPlayingView(),
+      binding: BindingsBuilder(() {
+        Get.put(NowPlayingController(), permanent: true);
+      }),
+      transition: Transition.downToUp,
+    ),
+    GetPage(
       name: Routes.NOTIFICATION,
       page: () => const NotificationView(),
       bindings: [

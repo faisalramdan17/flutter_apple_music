@@ -15,8 +15,6 @@ class AlbumArtwork extends StatelessWidget {
       borderRadius: BorderRadius.circular(6),
       child: Stack(
         children: <Widget>[
-          // _imageEmpty(_height, _radius),
-          _imageAvailable(_height, _radius),
           imageUrl?.isEmpty ?? true
               ? _imageEmpty(_height, _radius)
               : _imageAvailable(_height, _radius),
