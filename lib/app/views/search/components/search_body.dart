@@ -16,7 +16,17 @@ class SearchBody extends StatelessWidget {
           if (state.searchedSongs == null) {
             return SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.all(70.0),
+                padding: const EdgeInsets.only(top: 150, right: 70, left: 70),
+                child: Lottie.asset(
+                  LottiePath.MUSIC_SONG,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          } else if (state.searchedSongs?.items?.isEmpty ?? true) {
+            return SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 150, right: 70, left: 70),
                 child: Lottie.asset(
                   LottiePath.EMPTY_BOX,
                   fit: BoxFit.cover,

@@ -18,7 +18,7 @@ class HomeAppBar extends StatelessWidget {
             photoURL: "https://avatars.githubusercontent.com/u/44645967?v=4",
             progress: 77,
             width: 60,
-            color: Colors.blue[400],
+            color: Get.theme.primaryColor.withOpacity(0.7),
           ),
           const Text(
             "Kuncie Apple Music",

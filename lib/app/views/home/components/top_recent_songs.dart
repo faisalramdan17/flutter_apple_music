@@ -13,22 +13,30 @@ class TopRecentSongs extends GetView<SongController> {
         ),
         controller.obx(
           (state) {
-            return ListView.builder(
-              padding: const EdgeInsets.only(
-                  left: 3.0, right: 3.0, top: 10.0, bottom: 100),
-              primary: false,
-              shrinkWrap: true,
-              itemCount: state!.items?.length ?? 0,
-              itemBuilder: (context, index) => SongTile(
-                item: state.items![index],
-              ),
-            );
+            return _songListView(state);
           },
-          onEmpty: Container(),
-          onError: (error) => Center(child: Text(error ?? "")),
-          onLoading: const Center(child: CircularProgressIndicator()),
+          onError: (error) => Center(
+              child: SizedBox(
+            height: 300,
+            width: double.infinity,
+            child: Text(error ?? ""),
+          )),
+          onLoading: _songListView(),
         ),
       ],
+    );
+  }
+
+  ListView _songListView([Song? state]) {
+    return ListView.builder(
+      padding:
+          const EdgeInsets.only(left: 3.0, right: 3.0, top: 10.0, bottom: 100),
+      primary: false,
+      shrinkWrap: true,
+      itemCount: state?.items?.isEmpty ?? false ? 0 : state?.items?.length ?? 7,
+      itemBuilder: (context, index) => SongTile(
+        item: state?.items?[index],
+      ),
     );
   }
 }

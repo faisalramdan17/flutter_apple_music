@@ -74,7 +74,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                     Text(
                                       state.artistName?.toTitleCase() ?? "-",
                                       style: const TextStyle(
-                                        fontSize: 10,
+                                        fontSize: 11.5,
                                         color: Color(0xFF58595C),
                                         letterSpacing: 1,
                                       ),
@@ -106,7 +106,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                         size: 22,
                                         color: state.repeatMode ==
                                                 AudioServiceRepeatMode.one
-                                            ? Colors.blue
+                                            ? Get.theme.primaryColor
                                             : Colors.grey,
                                       ),
                                     ),
@@ -116,10 +116,6 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                               StreamBuilder<PlaybackState>(
                                 stream: controller.audioHandler.playbackState,
                                 builder: (context, snapshot) {
-                                  // final repeatMode =
-                                  //     snapshot.data?.repeatMode ??
-                                  //         AudioServiceRepeatMode.none;
-                                  // print("repeatMode 2 = $repeatMode");
                                   final isPlaying =
                                       snapshot.data?.playing ?? false;
                                   final isIdle =
@@ -141,8 +137,8 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                         isPlaying
                                             ? Iconsax.pause
                                             : Iconsax.play,
-                                        size: isPlaying ? 20 : 23,
-                                        color: Colors.blue,
+                                        size: 23,
+                                        color: Get.theme.primaryColor,
                                       ),
                                     ),
                                   );

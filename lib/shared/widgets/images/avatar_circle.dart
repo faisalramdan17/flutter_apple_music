@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:badges/badges.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -28,73 +29,14 @@ class XAvatarCircle extends StatelessWidget {
   final bool isHideProgressBar;
   final double width;
 
-  Widget emptyPhoto() {
-    return Hero(
-      tag: "empty-avatar" + (heroTag ?? Random().nextInt(100).toString()),
-      child: CircleAvatar(
-        backgroundColor: Colors.white,
-        maxRadius: maxRadius,
-        child: Center(
-          child: Icon(
-            Iconsax.user,
-            size: iconSize,
-            color: Colors.black87,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget emptyPhotoBorder() {
-    return Container(
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: Colors.black87,
-            width: 1.5,
-          )),
-      child: Hero(
-        tag: "empty-avatar-border" +
-            (heroTag ?? Random().nextInt(100).toString()),
-        child: CircleAvatar(
-          backgroundColor: Colors.white,
-          maxRadius: maxRadius,
-          child: Center(
-            child: Icon(
-              Iconsax.user,
-              size: iconSize,
-              color: Colors.black87,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width + 7,
+      width: width + 9,
       child: isHideProgressBar
           ? (photoURL?.isEmpty ?? true
-              ? emptyPhotoBorder()
-              : Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.black45,
-                        width: 0.7,
-                      )),
-                  child: Hero(
-                    tag: "avatar" +
-                        (heroTag ?? Random().nextInt(100).toString()),
-                    child: CircleAvatar(
-                      maxRadius: maxRadius,
-                      backgroundColor: Colors.white,
-                      backgroundImage: NetworkImage(photoURL!),
-                    ),
-                  ),
-                ))
+              ? _emptyPhotoBorder()
+              : _heroAvatar(maxRadius: maxRadius))
           : Stack(
               children: [
                 CircularStepProgressIndicator(
@@ -110,16 +52,8 @@ class XAvatarCircle extends StatelessWidget {
                   roundedCap: (_, __) => true,
                   child: Center(
                     child: photoURL?.isEmpty ?? true
-                        ? emptyPhoto()
-                        : Hero(
-                            tag: "avatar" +
-                                (heroTag ?? Random().nextInt(100).toString()),
-                            child: CircleAvatar(
-                              maxRadius: width,
-                              backgroundColor: Colors.white,
-                              backgroundImage: NetworkImage(photoURL!),
-                            ),
-                          ),
+                        ? _emptyPhoto()
+                        : _heroAvatar(maxRadius: width),
                   ),
                 ),
                 Positioned(
@@ -142,6 +76,66 @@ class XAvatarCircle extends StatelessWidget {
                 ),
               ],
             ),
+    );
+  }
+
+  Widget _heroAvatar({double? maxRadius}) {
+    return Hero(
+      tag: "avatar" + (heroTag ?? Random().nextInt(100).toString()),
+      child: CachedNetworkImage(
+          imageUrl: photoURL!,
+          progressIndicatorBuilder: (context, url, downloadProgress) => Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: CircularProgressIndicator(
+                  value: downloadProgress.progress,
+                  strokeWidth: 0.7,
+                ),
+              ),
+          errorWidget: (context, url, error) => _iconAvatar(),
+          imageBuilder: (context, path) {
+            return CircleAvatar(
+              maxRadius: maxRadius,
+              backgroundColor: Colors.white,
+              backgroundImage: path,
+            );
+          }),
+    );
+  }
+
+  Widget _emptyPhoto() {
+    return Hero(
+      tag: "empty-avatar" + (heroTag ?? Random().nextInt(100).toString()),
+      child: _iconAvatar(),
+    );
+  }
+
+  Widget _emptyPhotoBorder() {
+    return Container(
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: Colors.black87,
+            width: 1.5,
+          )),
+      child: Hero(
+        tag: "empty-avatar-border" +
+            (heroTag ?? Random().nextInt(100).toString()),
+        child: _iconAvatar(),
+      ),
+    );
+  }
+
+  CircleAvatar _iconAvatar() {
+    return CircleAvatar(
+      backgroundColor: Colors.white,
+      maxRadius: maxRadius,
+      child: Center(
+        child: Icon(
+          Iconsax.user,
+          size: iconSize,
+          color: Colors.black87,
+        ),
+      ),
     );
   }
 }

@@ -35,9 +35,6 @@ dependencies:
   # The Font Awesome Icon pack available as set of Flutter Icons.
   font_awesome_flutter: ^9.2.0 # https://pub.dev/packages/font_awesome_flutter
 
-  # The following adds the Cupertino Icons font to your application. Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2 # https://pub.dev/packages/cupertino_icons
-
   # A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations. Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
   flutter_animated_dialog: ^2.0.1 # https://pub.dev/packages/flutter_animated_dialog
 
@@ -53,9 +50,14 @@ dependencies:
   # Bar indicator made of a series of selected and unselected steps
   step_progress_indicator: ^1.0.2 # https://pub.dev/packages/step_progress_indicator
 
-  just_audio: ^0.9.20
-  audio_service: ^0.18.3
-  just_waveform: ^0.0.2
+  # A flutter library to show images from the internet and keep them in the cache directory.
+  cached_network_image: ^3.2.0 # https://pub.dev/packages/cached_network_image
+
+  # A feature-rich audio player for Flutter. Loop, clip and concatenate any sound from any source (asset/file/URL/stream) in a variety of audio formats with gapless playback.
+  just_audio: ^0.9.20 # https://pub.dev/packages/just_audio
+
+  # Flutter plugin to play audio in the background while the screen is off.
+  audio_service: ^0.18.3 # https://pub.dev/packages/audio_service
 
 dev_dependencies:
   flutter_test:

@@ -13,40 +13,50 @@ class TopAlbums extends GetView<AlbumController> {
         ),
         controller.obx(
           (state) {
-            return GridView.builder(
-              padding: const EdgeInsets.only(
-                  left: 16.0, right: 16.0, top: 10.0, bottom: 23),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                mainAxisSpacing: 15.0,
-                crossAxisSpacing: 15.0,
-              ),
-              primary: false,
-              shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
-              itemCount: state!.items?.length ?? 4,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => Provider<Album>.value(
-                    //         value: _albums[index],
-                    //         child: SpecificAlbumScreen(),
-                    //       ),
-                    //     ));
-                  },
-                  child: AlbumTile(
-                    item: state.items![index],
-                  ),
-                );
-              },
-            );
+            return _albumGridView(state);
           },
-          onLoading: const Center(child: CircularProgressIndicator()),
+          onError: (error) => Center(
+              child: SizedBox(
+            height: 300,
+            width: double.infinity,
+            child: Text(error ?? ""),
+          )),
+          onLoading: _albumGridView(),
         ),
       ],
+    );
+  }
+
+  GridView _albumGridView([Album? state]) {
+    return GridView.builder(
+      padding:
+          const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 23),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        mainAxisSpacing: 15.0,
+        crossAxisSpacing: 15.0,
+      ),
+      primary: false,
+      shrinkWrap: true,
+      physics: const BouncingScrollPhysics(),
+      itemCount: state?.items?.isEmpty ?? false ? 0 : state?.items?.length ?? 6,
+      itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
+          onTap: () {
+            // Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => Provider<Album>.value(
+            //         value: _albums[index],
+            //         child: SpecificAlbumScreen(),
+            //       ),
+            //     ));
+          },
+          child: AlbumTile(
+            item: state?.items?[index],
+          ),
+        );
+      },
     );
   }
 }

@@ -9,4 +9,5 @@ class LottiePath {
   static String MULTI_TASKING = "assets/lottie/multi-tasking.json";
   static String IMAGE_ICON = "assets/lottie/image-icon.json";
   static String EMPTY_BOX = "assets/lottie/empty-box.json";
+  static String MUSIC_SONG = "assets/lottie/music-song.json";
 }
