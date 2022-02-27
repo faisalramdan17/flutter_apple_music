@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
 import 'package:kuncie_music/core.dart';
 import 'package:matcher/matcher.dart' as m;
 import 'album_mock.dart';
@@ -103,10 +102,7 @@ void main() {
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
 
-        /// test if status is success
-        expect(controller.status.isSuccess, true,
-            reason: "Status Controller is not Success");
-        expect(controller.state!.resultCount, 6,
+        expect(controller.albumsArtist!.resultCount, 6,
             reason:
                 "State Controller resultCount is not 6 when status is success");
 
@@ -125,9 +121,8 @@ void main() {
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
 
-        expect(controller.status.isError, true,
-            reason: "Status Controller is not Error");
-        expect(controller.state, null, reason: "Status Controller is not Null");
+        expect(controller.albumsArtist?.resultCount, null,
+            reason: "State Controller resultCoun is not Null");
 
         Get.reset();
       });

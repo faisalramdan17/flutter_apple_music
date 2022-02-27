@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kuncie_music/core.dart';
 import 'package:url_strategy/url_strategy.dart';
 

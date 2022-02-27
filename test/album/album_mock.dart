@@ -21,6 +21,5 @@ class MockRepositoryFailure implements IAlbumRepository {
   Future<Album> getTopAlbums() async => Future<Album>.error('error');
 
   @override
-  Future<Album> getArtistAlbums(String artistId) async =>
-      Future<Album>.error('error');
+  Future<Album> getArtistAlbums(String artistId) async => Album();
 }

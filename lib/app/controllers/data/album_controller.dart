@@ -4,7 +4,7 @@ class AlbumController extends SuperController<Album> {
   AlbumController({required this.albumRepository});
   static AlbumController to = Get.find();
   IAlbumRepository albumRepository;
-  // Album? albumsArtist;
+  Album? albumsArtist;
 
   @override
   void onInit() async {
@@ -19,10 +19,8 @@ class AlbumController extends SuperController<Album> {
   }
 
   Future<void> getArtistAlbums(String id) async {
-    // Loading, Success, Error handle with 1 line of code
-    return append(() => (() => albumRepository.getArtistAlbums(id)));
-    // albumsArtist = await songRepository.getArtistAlbums(id);
-    // update();
+    albumsArtist = await albumRepository.getArtistAlbums(id);
+    update();
   }
 
   @override

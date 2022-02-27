@@ -101,10 +101,7 @@ void main() {
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
 
-        /// test if status is success
-        expect(controller.status.isSuccess, true,
-            reason: "Status Controller is not Success");
-        expect(controller.state!.resultCount, 50,
+        expect(controller.searchedSongs?.resultCount, 50,
             reason:
                 "State Controller resultCount is not 50 when status is success");
 
@@ -123,9 +120,8 @@ void main() {
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
 
-        expect(controller.status.isError, true,
-            reason: "Status Controller is not Error");
-        expect(controller.state, null, reason: "Status Controller is not Null");
+        expect(controller.searchedSongs?.resultCount, null,
+            reason: "State Controller resultCount is not Null");
 
         Get.reset();
       });
@@ -144,10 +140,7 @@ void main() {
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
 
-        /// test if status is success
-        expect(controller.status.isSuccess, true,
-            reason: "Status Controller is not Success");
-        expect(controller.state!.resultCount, 7,
+        expect(controller.songsArtist?.resultCount, 7,
             reason:
                 "State Controller resultCount is not 7 when status is success");
 
@@ -166,9 +159,8 @@ void main() {
         /// await time request
         await Future.delayed(const Duration(milliseconds: 100));
 
-        expect(controller.status.isError, true,
-            reason: "Status Controller is not Error");
-        expect(controller.state, null, reason: "Status Controller is not Null");
+        expect(controller.songsArtist?.resultCount, null,
+            reason: "State Controller resultCount is not Null");
 
         Get.reset();
       });

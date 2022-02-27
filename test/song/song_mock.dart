@@ -22,13 +22,11 @@ class MockRepositorySuccess implements ISongRepository {
 
 class MockRepositoryFailure implements ISongRepository {
   @override
-  Future<Song> getRecentTopSongs() async => Future<Song>.error('error');
+  Future<Song> getRecentTopSongs() async => await Future<Song>.error('error');
 
   @override
-  Future<Song> getArtistSongs(String artistId) async =>
-      Future<Song>.error('error');
+  Future<Song> getArtistSongs(String artistId) async => Song();
 
   @override
-  Future<Song> getSearchArtistSongs(String searchText) async =>
-      Future<Song>.error('error');
+  Future<Song> getSearchArtistSongs(String searchText) async => Song();
 }
