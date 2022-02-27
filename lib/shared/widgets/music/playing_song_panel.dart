@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:kuncie_music/core.dart';
@@ -13,7 +14,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
       if (state?.trackId == null) return const SizedBox();
       return AnimatedContainer(
         duration: const Duration(milliseconds: 250),
-        height: 80,
+        height: 70,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -30,25 +31,21 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    height: 60,
-                    width: 60,
-                    margin: const EdgeInsets.only(left: 15.0),
-                    decoration: BoxDecoration(
-                      image: state!.artworkUrl100 == null
-                          ? null
-                          : DecorationImage(
-                              image: NetworkImage(state.artworkUrl100!),
-                              fit: BoxFit.fill,
-                            ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
+                Container(
+                  height: 50,
+                  width: 50,
+                  margin: const EdgeInsets.only(left: 15.0),
+                  decoration: BoxDecoration(
+                    image: state!.artworkUrl100 == null
+                        ? null
+                        : DecorationImage(
+                            image: NetworkImage(state.artworkUrl100!),
+                            fit: BoxFit.cover,
+                          ),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                Flexible(
-                  flex: 5,
+                Expanded(
                   child: SizedBox(
                     width: double.infinity,
                     child: Column(
@@ -66,7 +63,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                     Text(
                                       state.trackName?.toTitleCase() ?? "-",
                                       style: const TextStyle(
-                                        fontSize: 13.5,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.w600,
                                         letterSpacing: 0.7,
                                       ),
@@ -77,7 +74,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                     Text(
                                       state.artistName?.toTitleCase() ?? "-",
                                       style: const TextStyle(
-                                        fontSize: 12.5,
+                                        fontSize: 10,
                                         color: Color(0xFF58595C),
                                         letterSpacing: 1,
                                       ),
@@ -87,23 +84,64 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                   ],
                                 ),
                               ),
-                              StreamBuilder<bool>(
-                                stream: controller.audioHandler.playbackState
-                                    .map((state) => state.playing)
-                                    .distinct(),
-                                builder: (context, snapshot) {
-                                  final isPlaying = snapshot.data ?? false;
+                              GetBuilder<PlayingSongController>(
+                                builder: (state) {
                                   return GestureDetector(
-                                    onTap: isPlaying
-                                        ? controller.audioHandler.pause
-                                        : controller.audioHandler.play,
+                                    onTap: () {
+                                      if (state.repeatMode ==
+                                          AudioServiceRepeatMode.one) {
+                                        controller.setRepeatMode(
+                                          AudioServiceRepeatMode.none,
+                                        );
+                                      } else {
+                                        controller.setRepeatMode(
+                                          AudioServiceRepeatMode.one,
+                                        );
+                                      }
+                                    },
                                     child: Padding(
-                                      padding: const EdgeInsets.only(right: 17),
+                                      padding: const EdgeInsets.only(right: 18),
+                                      child: Icon(
+                                        Iconsax.repeate_one,
+                                        size: 22,
+                                        color: state.repeatMode ==
+                                                AudioServiceRepeatMode.one
+                                            ? Colors.blue
+                                            : Colors.grey,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              StreamBuilder<PlaybackState>(
+                                stream: controller.audioHandler.playbackState,
+                                builder: (context, snapshot) {
+                                  // final repeatMode =
+                                  //     snapshot.data?.repeatMode ??
+                                  //         AudioServiceRepeatMode.none;
+                                  // print("repeatMode 2 = $repeatMode");
+                                  final isPlaying =
+                                      snapshot.data?.playing ?? false;
+                                  final isIdle =
+                                      snapshot.data?.processingState ==
+                                          AudioProcessingState.idle;
+                                  return GestureDetector(
+                                    onTap: () {
+                                      if (isIdle) {
+                                        controller.addPlayingSong(state);
+                                      } else if (isPlaying) {
+                                        controller.audioHandler.pause();
+                                      } else {
+                                        controller.audioHandler.play();
+                                      }
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(right: 18),
                                       child: Icon(
                                         isPlaying
                                             ? Iconsax.pause
                                             : Iconsax.play,
-                                        size: isPlaying ? 22 : 25,
+                                        size: isPlaying ? 20 : 23,
                                         color: Colors.blue,
                                       ),
                                     ),
@@ -122,7 +160,7 @@ class PlayingSongPanel extends GetView<PlayingSongController> {
                                 final mediaState = snapshot.data;
                                 return SliderPlayingSong(
                                   duration: mediaState?.mediaItem?.duration ??
-                                      Duration.zero,
+                                      const Duration(seconds: 30),
                                   position:
                                       mediaState?.position ?? Duration.zero,
                                   onChangeEnd: (newPosition) {

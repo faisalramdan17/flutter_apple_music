@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:kuncie_music/core.dart';
 
 class SliderPlayingSong extends StatefulWidget {
   final Duration duration;
@@ -34,7 +35,7 @@ class _SliderPlayingSongState extends State<SliderPlayingSong> {
       trackHeight: 2.0,
       trackShape: const RoundedRectSliderTrackShape(),
       thumbShape: const RoundSliderThumbShape(
-        enabledThumbRadius: 6.5,
+        enabledThumbRadius: 5,
       ),
       overlayShape: const RoundSliderOverlayShape(
         overlayRadius: 0,
@@ -60,14 +61,16 @@ class _SliderPlayingSongState extends State<SliderPlayingSong> {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 2, right: 50),
+          padding: const EdgeInsets.only(left: 5, right: 57),
           child: SliderTheme(
             data: _sliderThemeData,
             child: Slider(
               min: 0.0,
               max: widget.duration.inMilliseconds.toDouble(),
               value: value,
-              divisions: value.toInt(),
+              label: XConverter.durationToTime(
+                  Duration(milliseconds: value.round())),
+              divisions: widget.duration.inMilliseconds.toInt(),
               onChanged: (value) {
                 if (!_dragging) {
                   _dragging = true;
@@ -89,14 +92,13 @@ class _SliderPlayingSongState extends State<SliderPlayingSong> {
           ),
         ),
         Positioned(
-          right: 15.0,
-          bottom: 0.0,
-          child: Text(
-              RegExp(r'((^0*[1-9]\d*:)?\d{2}:\d{2})\.\d+$')
-                      .firstMatch("$_remaining")
-                      ?.group(1) ??
-                  '$_remaining',
-              style: Theme.of(context).textTheme.caption),
+          right: 12.0,
+          bottom: -1.7,
+          child: Text("-" + XConverter.durationToTime(_remaining),
+              style: Theme.of(context)
+                  .textTheme
+                  .caption!
+                  .copyWith(fontSize: 11.5)),
         ),
       ],
     );

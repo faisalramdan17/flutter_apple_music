@@ -5,6 +5,7 @@ import 'package:rxdart/rxdart.dart' as x;
 class PlayingSongController extends SuperController<SongItem> {
   static PlayingSongController to = Get.find<PlayingSongController>();
   late AudioHandler audioHandler; // singleton.
+  AudioServiceRepeatMode repeatMode = AudioServiceRepeatMode.none;
 
   @override
   void onInit() async {
@@ -16,24 +17,37 @@ class PlayingSongController extends SuperController<SongItem> {
         androidNotificationChannelId: 'id.codingyourlife.myapp.channel.audio',
         androidNotificationChannelName: 'Kuncie Music playback',
         androidNotificationOngoing: true,
-        androidStopForegroundOnPause: true,
+        // androidStopForegroundOnPause: true,
       ),
     );
+
+    audioHandler.playbackState.listen((playbackState) async {
+      if (playbackState.processingState == AudioProcessingState.completed) {
+        await audioHandler.stop();
+      }
+    });
+
     append(() => (() async => await Future<SongItem>.value(SongItem())));
   }
 
+  Future<void> setRepeatMode(AudioServiceRepeatMode mode) async {
+    await audioHandler.setRepeatMode(mode);
+    repeatMode = mode;
+    update();
+  }
+
   Future<void> addPlayingSong(SongItem item) async {
+    append(() => (() async => await Future<SongItem>.value(item)));
+
     final _item = MediaItem(
       id: item.previewUrl!,
       album: item.collectionName,
       title: item.trackName!,
       artist: item.artistName,
-      duration: const Duration(seconds: 30),
       artUri: Uri.parse(item.artworkUrl100!),
     );
     await audioHandler.playMediaItem(_item);
     await audioHandler.play();
-    return append(() => (() async => await Future<SongItem>.value(item)));
   }
 
   Stream<MediaState> get mediaStateStream =>

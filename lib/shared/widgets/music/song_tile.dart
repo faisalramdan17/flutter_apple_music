@@ -1,4 +1,6 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kuncie_music/core.dart';
 
 class SongTile extends GetView<PlayingSongController> {
@@ -34,22 +36,18 @@ class SongTile extends GetView<PlayingSongController> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        height: 65,
-                        width: 65,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(item.artworkUrl100!),
-                            fit: BoxFit.fill,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
+                    Container(
+                      height: 60,
+                      width: 60,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(item.artworkUrl100!),
+                          fit: BoxFit.cover,
                         ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    Flexible(
-                      flex: 5,
+                    Expanded(
                       child: Container(
                         padding: const EdgeInsets.only(left: 10),
                         child: SizedBox(
@@ -61,27 +59,29 @@ class SongTile extends GetView<PlayingSongController> {
                               Text(
                                 item.trackName?.toTitleCase() ?? "-",
                                 style: const TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14.5,
                                   fontWeight: FontWeight.w600,
                                   letterSpacing: 0.7,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              const SizedBox(height: 4),
+                              const SizedBox(height: 2),
                               Text(
                                 item.artistName?.toTitleCase() ?? "-",
                                 style: const TextStyle(
+                                  fontSize: 13.5,
                                   color: Color(0xFF58595C),
                                   letterSpacing: 1,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              const SizedBox(height: 4),
+                              const SizedBox(height: 2),
                               Text(
                                 item.collectionName?.toTitleCase() ?? "-",
                                 style: const TextStyle(
+                                  fontSize: 13,
                                   color: Color(0xFFADB9CD),
                                   letterSpacing: 1,
                                 ),
@@ -92,6 +92,27 @@ class SongTile extends GetView<PlayingSongController> {
                           ),
                         ),
                       ),
+                    ),
+                    StreamBuilder<bool>(
+                      stream: controller.audioHandler.playbackState
+                          .map((state) => state.playing)
+                          .distinct(),
+                      builder: (context, snapshot) {
+                        final isPlaying = snapshot.data ?? false;
+
+                        return _isSelectedSong && isPlaying
+                            ? Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10.0),
+                                child: SpinKitWave(
+                                  color: Get.context!.theme.primaryColor
+                                      .withOpacity(0.8),
+                                  duration: const Duration(milliseconds: 1500),
+                                  size: 15,
+                                ),
+                              )
+                            : const SizedBox();
+                      },
                     ),
                   ],
                 ),

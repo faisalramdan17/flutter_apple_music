@@ -13,6 +13,7 @@ class SongProvider extends GetConnect implements ISongProvider {
     httpClient.baseUrl = ApiString.itunesURL;
     httpClient.defaultContentType = "text/javascript; charset=utf-8";
     httpClient.defaultDecoder = Song.fromJson;
+    httpClient.timeout = const Duration(seconds: 30);
   }
 
   @override

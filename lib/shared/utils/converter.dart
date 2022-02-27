@@ -1,32 +1,11 @@
 import 'package:intl/intl.dart';
 
 class XConverter {
-  static String numberSupply(double input,
-      {int decimal = 2, isAbbreviation = false}) {
-    int decimalCount = 1;
-    for (int x = 1; x <= decimal; x++) {
-      decimalCount *= 10;
-    }
-    double _input = input / decimalCount;
-    int inputLength = _input.toString().length;
-
-    String symbol = "";
-    if (isAbbreviation && inputLength > 4) {
-      int check = (inputLength / 3).floor();
-      decimal = 2;
-      List<String> listSymbol = [
-        "K",
-        "M",
-        "B",
-        "T",
-        "Quadrillion",
-        "Quintillion"
-      ];
-      _input /= quadratic(1000, check);
-      symbol = listSymbol[check - 1];
-    }
-
-    return numberFormat(_input, decimal) + symbol;
+  static String durationToTime(Duration input) {
+    return RegExp(r'((^0*[1-9]\d*:)?\d{2}:\d{2})\.\d+$')
+            .firstMatch("$input")
+            ?.group(1) ??
+        '$input';
   }
 
   static String numberFormat(double input, [int decimal = 2]) {

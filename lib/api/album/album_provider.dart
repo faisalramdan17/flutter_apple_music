@@ -12,6 +12,7 @@ class AlbumProvider extends GetConnect implements IAlbumProvider {
     httpClient.baseUrl = ApiString.itunesURL;
     httpClient.defaultContentType = "text/javascript; charset=utf-8";
     httpClient.defaultDecoder = Album.fromJson;
+    httpClient.timeout = const Duration(seconds: 30);
   }
 
   @override

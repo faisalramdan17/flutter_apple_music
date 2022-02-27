@@ -2,15 +2,13 @@ import 'package:kuncie_music/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'progress_hub.dart';
 
 class XOpenDialog {
   static const DialogTransitionType animationType = DialogTransitionType.size;
 
   static Future<void> messageSuccess(String message,
       {String? title, Duration? duration}) async {
-    // await ProgressHud.hide();
+    await XProgressHud.hide();
 
     Get.snackbar(
       title ?? "Success",

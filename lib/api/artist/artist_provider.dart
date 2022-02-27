@@ -10,6 +10,7 @@ class ArtistProvider extends GetConnect implements IArtistProvider {
   void onInit() {
     httpClient.baseUrl = ApiString.itunesURL;
     httpClient.defaultDecoder = Artist.fromJson;
+    httpClient.timeout = const Duration(seconds: 30);
   }
 
   @override
