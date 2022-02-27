@@ -8,17 +8,26 @@ class AlbumArtwork extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const double _height = 286;
+    const double _radius = 27;
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(6),
       child: Stack(
         children: <Widget>[
-          imageUrl?.isEmpty ?? true ? _imageEmpty() : _imageAvailable(),
+          // _imageEmpty(_height, _radius),
+          _imageAvailable(_height, _radius),
+          imageUrl?.isEmpty ?? true
+              ? _imageEmpty(_height, _radius)
+              : _imageAvailable(_height, _radius),
           Opacity(
             opacity: 0.55,
             child: Container(
               width: double.infinity,
-              height: Get.width,
+              height: _height,
               decoration: const BoxDecoration(
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(_radius)),
                 gradient: LinearGradient(
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
@@ -39,11 +48,14 @@ class AlbumArtwork extends StatelessWidget {
     );
   }
 
-  Widget _imageEmpty() {
+  Widget _imageEmpty(double _size, double _radius) {
     return Container(
       width: double.infinity,
-      height: Get.width,
-      color: Colors.grey[400],
+      height: _size,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(_radius)),
+        color: Colors.grey[400],
+      ),
       child: const Center(
         child: Icon(
           Icons.music_note,
@@ -54,43 +66,40 @@ class AlbumArtwork extends StatelessWidget {
     );
   }
 
-  Widget _imageAvailable() {
-    return SizedBox(
-      width: double.infinity,
-      height: Get.width,
-      child: CachedNetworkImage(
-        imageUrl: imageUrl!,
-        progressIndicatorBuilder: (context, url, downloadProgress) => Container(
-          height: Get.width,
-          width: Get.width,
-          padding: const EdgeInsets.all(10.0),
-          child: CircularProgressIndicator(
-            value: downloadProgress.progress,
-            strokeWidth: 0.7,
-          ),
+  Widget _imageAvailable(double _size, double _radius) {
+    return CachedNetworkImage(
+      imageUrl: imageUrl!,
+      progressIndicatorBuilder: (context, url, downloadProgress) => Container(
+        height: _size,
+        width: _size,
+        padding: const EdgeInsets.all(10.0),
+        child: CircularProgressIndicator(
+          value: downloadProgress.progress,
+          strokeWidth: 0.7,
         ),
-        errorWidget: (context, url, error) => Container(
-          height: Get.width,
-          width: Get.width,
-          decoration: BoxDecoration(
-            color: Get.theme.primaryColor.withOpacity(0.7),
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        imageBuilder: (context, path) {
-          return Container(
-            height: Get.width,
-            width: Get.width,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: path,
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(8),
-            ),
-          );
-        },
       ),
+      errorWidget: (context, url, error) => Container(
+        height: _size,
+        width: _size,
+        decoration: BoxDecoration(
+          color: Get.theme.primaryColor.withOpacity(0.7),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(_radius)),
+        ),
+      ),
+      imageBuilder: (context, path) {
+        return Container(
+          width: double.infinity,
+          height: _size,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: path,
+              fit: BoxFit.cover,
+            ),
+            borderRadius:
+                BorderRadius.vertical(bottom: Radius.circular(_radius)),
+          ),
+        );
+      },
     );
   }
 }

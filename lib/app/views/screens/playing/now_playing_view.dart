@@ -35,14 +35,11 @@ class NowPlayingView extends GetView<NowPlayingController> {
       children: [
         SizedBox(
           width: double.infinity,
-          height: Get.width + 50,
+          height: 320,
           child: Stack(
             children: <Widget>[
               AlbumArtwork(imageUrl: state.artworkUrl100),
-              const Align(
-                alignment: Alignment.bottomCenter,
-                child: ControlsBoard(),
-              ),
+              const ControlsBoard(),
             ],
           ),
         ),
@@ -73,7 +70,7 @@ class NowPlayingView extends GetView<NowPlayingController> {
                           (state.collectionName?.toTitleCase() ?? "-"),
                       style: const TextStyle(
                         fontSize: 16,
-                        color: Color(0xFFADB9CD),
+                        color: Color(0xFF8994A7),
                         letterSpacing: 1,
                       ),
                       maxLines: 1,
@@ -86,7 +83,7 @@ class NowPlayingView extends GetView<NowPlayingController> {
                     Text(
                       state.trackName ?? "-",
                       style: const TextStyle(
-                        fontSize: 23,
+                        fontSize: 22,
                         color: Color(0xFF4D6B9C),
                         fontWeight: FontWeight.w600,
                       ),

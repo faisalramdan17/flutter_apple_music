@@ -7,14 +7,17 @@ class ControlsBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      width: double.infinity,
-      child: Stack(
-        children: <Widget>[
-          _fastButton(),
-          _playButton(),
-        ],
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: SizedBox(
+        height: 70,
+        width: double.infinity,
+        child: Stack(
+          children: <Widget>[
+            _fastButton(),
+            _playButton(),
+          ],
+        ),
       ),
     );
   }
