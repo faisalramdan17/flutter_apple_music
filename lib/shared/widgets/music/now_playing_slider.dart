@@ -2,14 +2,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:kuncie_music/core.dart';
 
-class SliderPlayingSong extends StatefulWidget {
+class NowPlayingSlider extends StatefulWidget {
   final Duration duration;
   final Duration position;
   final Duration bufferedPosition;
   final ValueChanged<Duration>? onChanged;
   final ValueChanged<Duration>? onChangeEnd;
 
-  const SliderPlayingSong({
+  const NowPlayingSlider({
     Key? key,
     required this.duration,
     required this.position,
@@ -19,10 +19,10 @@ class SliderPlayingSong extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SliderPlayingSongState createState() => _SliderPlayingSongState();
+  _NowPlayingSliderState createState() => _NowPlayingSliderState();
 }
 
-class _SliderPlayingSongState extends State<SliderPlayingSong> {
+class _NowPlayingSliderState extends State<NowPlayingSlider> {
   double? _dragValue;
   bool _dragging = false;
   late SliderThemeData _sliderThemeData;
@@ -70,7 +70,9 @@ class _SliderPlayingSongState extends State<SliderPlayingSong> {
               value: value,
               label: XConverter.durationToTime(
                   Duration(milliseconds: value.round())),
-              divisions: widget.duration.inMilliseconds.toInt(),
+              divisions: widget.duration.inMilliseconds > 0
+                  ? widget.duration.inMilliseconds
+                  : 1,
               onChanged: (value) {
                 if (!_dragging) {
                   _dragging = true;

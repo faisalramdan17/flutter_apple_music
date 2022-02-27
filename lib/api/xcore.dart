@@ -6,6 +6,9 @@ export 'album/album_repository.dart';
 export 'artist/artist_provider.dart';
 export 'artist/artist_repository.dart';
 
+// Notification API Services
+export 'notification/notification_repository.dart';
+
 // Song API Services
 export 'song/song_provider.dart';
 export 'song/song_repository.dart';

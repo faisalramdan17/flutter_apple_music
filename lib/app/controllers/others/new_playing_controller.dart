@@ -1,11 +1,11 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:kuncie_music/core.dart';
-import 'package:rxdart/rxdart.dart' as x;
 
-class PlayingSongController extends SuperController<SongItem> {
-  static PlayingSongController to = Get.find<PlayingSongController>();
+class NowPlayingController extends SuperController<SongItem> {
+  static NowPlayingController to = Get.find<NowPlayingController>();
   late AudioHandler audioHandler; // singleton.
   AudioServiceRepeatMode repeatMode = AudioServiceRepeatMode.none;
+  late Rx<MediaState> mediaState;
 
   @override
   void onInit() async {
@@ -21,13 +21,22 @@ class PlayingSongController extends SuperController<SongItem> {
       ),
     );
 
-    audioHandler.playbackState.listen((playbackState) async {
-      if (playbackState.processingState == AudioProcessingState.completed) {
-        await audioHandler.stop();
-      }
+    mediaState = MediaState(audioHandler.mediaItem.value, Duration.zero).obs;
+
+    initAudioListener();
+    append(() => (() async => await Future<SongItem>.value(SongItem())));
+  }
+
+  void initAudioListener() {
+    AudioService.position.listen((position) {
+      mediaState.value = MediaState(audioHandler.mediaItem.value, position);
     });
 
-    append(() => (() async => await Future<SongItem>.value(SongItem())));
+    audioHandler.playbackState.listen((playbackState) async {
+      if (playbackState.processingState == AudioProcessingState.completed) {
+        await audioHandler.pause();
+      }
+    });
   }
 
   Future<void> setRepeatMode(AudioServiceRepeatMode mode) async {
@@ -49,12 +58,6 @@ class PlayingSongController extends SuperController<SongItem> {
     await audioHandler.playMediaItem(_item);
     await audioHandler.play();
   }
-
-  Stream<MediaState> get mediaStateStream =>
-      x.Rx.combineLatest2<MediaItem?, Duration, MediaState>(
-          audioHandler.mediaItem,
-          AudioService.position,
-          (mediaItem, position) => MediaState(mediaItem, position));
 
   @override
   void onDetached() {

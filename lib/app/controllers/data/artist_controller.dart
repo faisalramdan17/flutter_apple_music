@@ -1,5 +1,4 @@
 import 'package:kuncie_music/core.dart';
-import 'package:get/get.dart';
 
 class ArtistController extends SuperController<Artist> {
   ArtistController({required this.artistRepository});

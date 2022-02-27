@@ -1,5 +1,4 @@
 import 'package:kuncie_music/core.dart';
-import 'package:get/get.dart';
 
 abstract class IArtistProvider {
   Future<Response<Artist>> getArtist(String path);

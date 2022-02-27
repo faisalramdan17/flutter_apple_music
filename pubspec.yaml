@@ -35,6 +35,9 @@ dependencies:
   # The Font Awesome Icon pack available as set of Flutter Icons.
   font_awesome_flutter: ^9.2.0 # https://pub.dev/packages/font_awesome_flutter
 
+  # A simple transparent image. Represented as a Uint8List, which was originally extracted from the Flutter codebase (was private in the test package).
+  transparent_image: ^2.0.0 # https://pub.dev/packages/transparent_image
+
   # A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations. Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
   flutter_animated_dialog: ^2.0.1 # https://pub.dev/packages/flutter_animated_dialog
 
@@ -79,10 +82,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
     - assets/icons/
     - assets/lottie/
     - assets/menu/
+    - assets/images/
+    - assets/images/notifications/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

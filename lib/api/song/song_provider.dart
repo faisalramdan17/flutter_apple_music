@@ -1,5 +1,4 @@
 import 'package:kuncie_music/core.dart';
-import 'package:get/get.dart';
 
 abstract class ISongProvider {
   Future<Response<Song>> getRecentTopSongs(String path);

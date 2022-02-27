@@ -5,5 +5,6 @@ class MobileMenuBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(MobileMenuController());
+    Get.put<NotificationController>(NotificationController());
   }
 }

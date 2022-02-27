@@ -16,7 +16,7 @@ class MobileMenuView extends GetView<MobileMenuController> {
           SearchView(),
         ],
       ),
-      bottomSheet: const PlayingSongPanel(),
+      bottomSheet: const NowPlayingPanel(),
       bottomNavigationBar: ValueBuilder<int?>(
         initialValue: initialValue,
         builder: (value, updateFn) => XBottomBar(

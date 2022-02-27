@@ -21,12 +21,15 @@ export 'utils/progress_hub.dart';
 
 /// Shared Widgets
 export 'widgets/music/album_tile.dart';
-export 'widgets/music/playing_song_panel.dart';
-export 'widgets/music/slider_playing_song.dart';
+export 'widgets/music/music_icons.dart';
+export 'widgets/music/now_playing_panel.dart';
+export 'widgets/music/now_playing_slider.dart';
 export 'widgets/music/song_tile.dart';
 export 'widgets/bottom_bar/bottom_bar.dart';
 export 'widgets/bottom_bar/bottom_bar_item.dart';
 export 'widgets/bottom_bar/bottom_bar_navigation.dart';
 export 'widgets/buttons/action_button.dart';
+export 'widgets/common_bar/app_bar.dart';
+export 'widgets/common_bar/progress_bar.dart';
 export 'widgets/images/avatar_circle.dart';
 export 'widgets/texts/title_listview.dart';

@@ -1,7 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:kuncie_music/core.dart';
-import 'package:get/get.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -24,6 +23,13 @@ class AppPages {
       page: () => const MobileMenuView(initialValue: 1),
       bindings: [
         SongBinding(),
+      ],
+    ),
+    GetPage(
+      name: Routes.NOTIFICATION,
+      page: () => const NotificationView(),
+      bindings: [
+        MobileMenuBinding(),
       ],
     ),
   ];

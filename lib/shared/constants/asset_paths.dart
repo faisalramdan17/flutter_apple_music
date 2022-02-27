@@ -2,7 +2,7 @@
 
 abstract class AssetPaths {
   static const String IMAGES = 'assets/images/';
-  static const String JSON = 'assets/icons/';
+  static const String ICONS = 'assets/icons/';
   static const String MENU = 'assets/menu/';
   static const String LOTTIE = 'assets/lottie/';
 }

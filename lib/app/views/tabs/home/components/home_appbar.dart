@@ -21,11 +21,11 @@ class HomeAppBar extends StatelessWidget {
             color: Get.theme.primaryColor.withOpacity(0.7),
           ),
           const Text(
-            "Kuncie Apple Music",
+            "Apple Music",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.NOTIFICATION),
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Badge(

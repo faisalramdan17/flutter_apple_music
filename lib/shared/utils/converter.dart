@@ -35,7 +35,7 @@ class XConverter {
     return BigInt.from(result);
   }
 
-  String? stringFormatYmd(String? date) {
+  static String? stringFormatYmd(String? date) {
     if (date == null) {
       return null;
     } else {
@@ -51,7 +51,7 @@ class XConverter {
     }
   }
 
-  DateTime? dateFormatYmd(String? dateInput) {
+  static DateTime? dateFormatYmd(String? dateInput) {
     if (dateInput == null) {
       return null;
     } else {
@@ -75,25 +75,25 @@ class XConverter {
     }
   }
 
-  String? stringFormatDmy(DateTime? date, [String? stringLocale]) {
+  static String? stringFormatDmy(DateTime? date, [String? stringLocale]) {
     return date == null
         ? null
         : DateFormat("dd-MM-yyyy", stringLocale).format(date);
   }
 
-  String? stringFormatDmyHhMmA(DateTime? date, [String? stringLocale]) {
+  static String? stringFormatDmyHhMmA(DateTime? date, [String? stringLocale]) {
     return date == null
         ? null
         : DateFormat("dd-MM-yyyy, hh:mm a", stringLocale).format(date);
   }
 
-  String? stringFormatDmyHeader(DateTime? date, [String? stringLocale]) {
+  static String? stringFormatDmyHeader(DateTime? date, [String? stringLocale]) {
     return date == null
         ? null
         : DateFormat("EEEE, dd MMMM yyyy", stringLocale).format(date);
   }
 
-  DateTime? dateFormatYmdOnly(DateTime? date) {
+  static DateTime? dateFormatYmdOnly(DateTime? date) {
     return date == null
         ? null
         : DateTime.parse(DateFormat("yyyy-MM-dd").format(date));

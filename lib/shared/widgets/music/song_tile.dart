@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kuncie_music/core.dart';
 
-class SongTile extends GetView<PlayingSongController> {
+class SongTile extends GetView<NowPlayingController> {
   const SongTile({this.item, Key? key}) : super(key: key);
   final SongItem? item;
 
