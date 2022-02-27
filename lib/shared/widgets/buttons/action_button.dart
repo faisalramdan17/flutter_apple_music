@@ -8,7 +8,7 @@ class XActionButton extends StatelessWidget {
     required this.onPressed,
     this.iconSize = 17,
     this.padding,
-    this.backgroundColor = kPrimaryColor,
+    this.backgroundColor,
     this.colorIcon = Colors.white,
     Key? key,
   }) : super(key: key);
@@ -26,11 +26,11 @@ class XActionButton extends StatelessWidget {
       padding: padding,
       child: ElevatedButton(
         style: TextButton.styleFrom(
-          backgroundColor: backgroundColor,
-          // padding: EdgeInsets.symmetric(
-          //   horizontal: kDefaultPadding * 1.5,
-          //   vertical: kDefaultPadding / (XResponsive.isMobile(context) ? 2 : 1),
-          // ),
+          backgroundColor: backgroundColor ?? Get.theme.primaryColor,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 18 * 1.5,
+            vertical: 18 / 2,
+          ),
         ),
         onPressed: onPressed,
         child: Row(

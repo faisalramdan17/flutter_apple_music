@@ -25,16 +25,6 @@ class XConverter {
     return count;
   }
 
-  static String amountFromBigInt(BigInt input, int decimal) {
-    double result = input.toDouble() / quadratic(10, decimal);
-    return numberFormat(result, decimal);
-  }
-
-  static BigInt amountToBigInt(String input, int decimal) {
-    double result = double.parse(input) * quadratic(10, decimal);
-    return BigInt.from(result);
-  }
-
   static String? stringFormatYmd(String? date) {
     if (date == null) {
       return null;

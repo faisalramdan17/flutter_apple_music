@@ -30,14 +30,7 @@ class MyApp extends StatelessWidget {
       initialBinding: BindingsBuilder(() {
         Get.put(NowPlayingController(), permanent: true);
       }),
-      theme: ThemeData(
-        // Define the default brightness and colors.
-        brightness: Brightness.light,
-        primaryColor: Colors.lightBlue[800],
-
-        // Define the default font family.
-        fontFamily: GoogleFonts.montserrat().fontFamily,
-      ),
+      theme: AppTheme.lightTheme,
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
       debugShowCheckedModeBanner: false,

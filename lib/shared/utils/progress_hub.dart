@@ -146,38 +146,13 @@ class XProgressHud extends PopupRoute {
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Stack(
             children: <Widget>[
-              // Center(
-              //   // child: Image.asset(
-              //   //   "assets/common/opet-indicator.gif",//logo-color
-              //   //   height: 77.0,
-              //   // )
-              //   // CircularProgressIndicator(
-              //   //     valueColor: new AlwaysStoppedAnimation(progressColor)),
-              // ),
               Center(
                 child: SpinKitWave(
                   color: Get.context!.theme.primaryColor,
                   duration: const Duration(milliseconds: 1500),
                   size: 35.0,
                 ),
-                // child: SpinKitSpinningLines(
-                //   color: Get.context!.theme.primaryColor,
-                //   duration: const Duration(milliseconds: 1500),
-                //   size: 35.0,
-                // ),
-                // child: SpinKitFadingCube(
-                //   color: Get.context?.theme.primaryColor,
-                //   duration: const Duration(milliseconds: 1500),
-                //   size: 35.0,
-                // ),
               ),
-              // Center(
-              //   child: Lottie.asset(
-              //     LottiePath.FORKLIFT,
-              //     height: 70,
-              //     fit: BoxFit.fitWidth,
-              //   ),
-              // )
             ],
           ));
     } else {

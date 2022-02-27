@@ -32,7 +32,7 @@ class InfoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      insetPadding: padding,
+      // insetPadding: padding,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: SingleChildScrollView(

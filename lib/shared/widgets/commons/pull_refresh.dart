@@ -20,10 +20,13 @@ class XPullRefresh extends StatelessWidget {
     return LiquidPullToRefresh(
       onRefresh: onRefresh,
       showChildOpacityTransition: false,
-      color: colorType == ColorType.white ? Colors.white : Colors.blue,
+      color:
+          colorType != ColorType.white ? Colors.white : Get.theme.primaryColor,
       backgroundColor: Get.isDarkMode
           ? null
-          : (colorType == ColorType.white ? Colors.blue : Colors.white),
+          : (colorType != ColorType.white
+              ? Get.theme.primaryColor
+              : Colors.white),
       height: 87,
       springAnimationDurationInMilliseconds: 600,
       animSpeedFactor: 1.2,

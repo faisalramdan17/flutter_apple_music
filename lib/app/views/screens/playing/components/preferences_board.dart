@@ -15,45 +15,57 @@ class PreferencesBoard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            IconButton(
-              onPressed: () => launch(controller.state!.trackViewUrl!),
-              icon: const Icon(
-                Iconsax.music_circle,
-                size: 37,
-                color: Color(0xFF7B92CA),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                if (controller.repeatMode == AudioServiceRepeatMode.one) {
-                  controller.setRepeatMode(
-                    AudioServiceRepeatMode.none,
-                  );
-                } else {
-                  controller.setRepeatMode(
-                    AudioServiceRepeatMode.one,
-                  );
-                }
-              },
-              child: Icon(
-                Iconsax.repeate_one,
-                size: 37,
-                color: controller.repeatMode == AudioServiceRepeatMode.one
-                    ? Get.theme.primaryColor
-                    : Colors.grey,
-              ),
-            ),
-            IconButton(
-              onPressed: () => launch(controller.state!.collectionViewUrl!),
-              icon: const Icon(
-                Iconsax.music_playlist,
-                size: 37,
-                color: Color(0xFF7B92CA),
-              ),
-            ),
+            _songLinkButton(controller),
+            _repeatButton(controller),
+            _albumLinkButton(controller),
           ],
         );
       },
+    );
+  }
+
+  Widget _songLinkButton(NowPlayingController controller) {
+    return IconButton(
+      onPressed: () => launch(controller.state!.trackViewUrl!),
+      icon: const Icon(
+        Iconsax.music_circle,
+        size: 37,
+        color: Color(0xFF7B92CA),
+      ),
+    );
+  }
+
+  Widget _repeatButton(NowPlayingController controller) {
+    return GestureDetector(
+      onTap: () {
+        if (controller.repeatMode == AudioServiceRepeatMode.one) {
+          controller.setRepeatMode(
+            AudioServiceRepeatMode.none,
+          );
+        } else {
+          controller.setRepeatMode(
+            AudioServiceRepeatMode.one,
+          );
+        }
+      },
+      child: Icon(
+        Iconsax.repeate_one,
+        size: 37,
+        color: controller.repeatMode == AudioServiceRepeatMode.one
+            ? Get.theme.primaryColor
+            : Colors.grey,
+      ),
+    );
+  }
+
+  Widget _albumLinkButton(NowPlayingController controller) {
+    return IconButton(
+      onPressed: () => launch(controller.state!.collectionViewUrl!),
+      icon: const Icon(
+        Iconsax.music_playlist,
+        size: 37,
+        color: Color(0xFF7B92CA),
+      ),
     );
   }
 }
