@@ -15,12 +15,20 @@ class TopAlbums extends GetView<AlbumController> {
           (state) {
             return _albumGridView(state);
           },
-          onError: (error) => Center(
-              child: SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: Text(error ?? ""),
-          )),
+          onError: (error) => Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+                child: SizedBox(
+              height: 150,
+              width: double.infinity,
+              child: Center(
+                  child: Text(
+                (error ?? "") + "\n\nPlease pull to refresh and try again!",
+                style: Get.theme.textTheme.titleMedium!
+                    .copyWith(color: Colors.red[400]),
+              )),
+            )),
+          ),
           onLoading: _albumGridView(),
         ),
       ],
@@ -42,16 +50,10 @@ class TopAlbums extends GetView<AlbumController> {
       itemCount: state?.items?.isEmpty ?? false ? 0 : state?.items?.length ?? 6,
       itemBuilder: (BuildContext context, int index) {
         return GestureDetector(
-          onTap: () {
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: (context) => Provider<Album>.value(
-            //         value: _albums[index],
-            //         child: SpecificAlbumScreen(),
-            //       ),
-            //     ));
-          },
+          onTap: () => XOpenDialog.info(
+            lottiePath: LottiePath.COMING_SOON,
+            lottiePadding: const EdgeInsets.only(top: 50),
+          ),
           child: AlbumTile(
             item: state?.items?[index],
           ),

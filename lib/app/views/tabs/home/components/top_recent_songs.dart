@@ -15,12 +15,22 @@ class TopRecentSongs extends GetView<SongController> {
           (state) {
             return _songListView(state);
           },
-          onError: (error) => Center(
-              child: SizedBox(
-            height: 300,
-            width: double.infinity,
-            child: Text(error ?? ""),
-          )),
+          onError: (error) => Container(
+            padding: const EdgeInsets.all(20.0),
+            margin: const EdgeInsets.only(bottom: 370.0),
+            child: Center(
+                child: SizedBox(
+              height: 170,
+              width: double.infinity,
+              child: Center(
+                child: Text(
+                  (error ?? "") + "\n\nPlease pull to refresh and try again!",
+                  style: Get.theme.textTheme.titleMedium!
+                      .copyWith(color: Colors.red[400]),
+                ),
+              ),
+            )),
+          ),
           onLoading: _songListView(),
         ),
       ],

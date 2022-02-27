@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kuncie_music/core.dart';
 
 import 'components/home_appbar.dart';
 import 'components/top_albums.dart';
@@ -11,13 +12,19 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              HomeAppBar(),
-              TopAlbums(),
-              TopRecentSongs(),
-            ],
+        child: XPullRefresh(
+          onRefresh: () async {
+            AlbumController.to.getTopAlbums();
+            SongController.to.getRecentTopSongs();
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              children: const [
+                HomeAppBar(),
+                TopAlbums(),
+                TopRecentSongs(),
+              ],
+            ),
           ),
         ),
       ),

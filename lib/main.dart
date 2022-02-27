@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // Define the default font family.
         fontFamily: GoogleFonts.montserrat().fontFamily,
       ),
-      defaultTransition: Transition.cupertino,
+      defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
       debugShowCheckedModeBanner: false,
     );

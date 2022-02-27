@@ -24,11 +24,7 @@ class NotificationView extends GetView<NotificationController> {
                   child: ListView(
                     padding: const EdgeInsets.only(top: 7),
                     children: controller.messageDates.map((date) {
-                      return Column(
-                        children: [
-                          buildItemNotification(date!),
-                        ],
-                      );
+                      return buildItemNotification(date!);
                     }).toList(),
                   ),
                 ),
@@ -46,27 +42,28 @@ class NotificationView extends GetView<NotificationController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          buildHeadDate(
-              text: XConverter.dateFormatYmdOnly(DateTime.now()) ==
-                      XConverter.dateFormatYmdOnly(date)
-                  ? "New"
-                  : XConverter.stringFormatDmyHeader(date) ?? "-"),
-          ...controller.messages
-              .where((element) =>
-                  XConverter.dateFormatYmdOnly(element.date) ==
-                  XConverter.dateFormatYmdOnly(date))
-              .map((element) => buildItemList(element))
-              .toList(),
+          buildHeadDate(date),
+          Column(
+            children: controller.messages
+                .where((element) =>
+                    XConverter.dateFormatYmdOnly(element.date) ==
+                    XConverter.dateFormatYmdOnly(date))
+                .map((element) => buildItemList(element))
+                .toList(),
+          ),
         ],
       ),
     );
   }
 
-  Padding buildHeadDate({required String text}) {
+  Padding buildHeadDate(DateTime date) {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 8),
       child: Text(
-        text,
+        XConverter.dateFormatYmdOnly(DateTime.now()) ==
+                XConverter.dateFormatYmdOnly(date)
+            ? "New"
+            : XConverter.stringFormatDmyHeader(date) ?? "-",
         style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
       ),
     );

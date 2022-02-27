@@ -11,9 +11,10 @@ class NowPlayingPanel extends GetView<NowPlayingController> {
     return controller.obx((state) {
       if (state?.trackId == null) return const SizedBox();
       return InkWell(
-        onTap: () {
-          Get.to(() => const NowPlayingView(), transition: Transition.downToUp);
-        },
+        onTap: () => Get.to(
+          () => const NowPlayingView(),
+          transition: Transition.downToUp,
+        ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 250),
           height: 70,

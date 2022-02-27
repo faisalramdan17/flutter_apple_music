@@ -9,7 +9,7 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
       margin: const EdgeInsets.only(bottom: 8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -17,11 +17,11 @@ class HomeAppBar extends StatelessWidget {
           XAvatarCircle(
             photoURL: "https://avatars.githubusercontent.com/u/44645967?v=4",
             progress: 77,
-            width: 60,
+            width: 55,
             color: Get.theme.primaryColor.withOpacity(0.7),
           ),
           const Text(
-            "Apple Music",
+            "Kuncie Music",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
           ),
           InkWell(

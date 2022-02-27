@@ -31,6 +31,7 @@ class AppPages {
       bindings: [
         MobileMenuBinding(),
       ],
+      transition: Transition.cupertino,
     ),
   ];
 }

@@ -53,6 +53,9 @@ dependencies:
   # Bar indicator made of a series of selected and unselected steps
   step_progress_indicator: ^1.0.2 # https://pub.dev/packages/step_progress_indicator
 
+  # A beautiful and custom refresh indicator with some cool animations and transitions for flutter.
+  liquid_pull_to_refresh: ^3.0.1 # https://pub.dev/packages/liquid_pull_to_refresh
+
   # A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.2.0 # https://pub.dev/packages/cached_network_image
 
