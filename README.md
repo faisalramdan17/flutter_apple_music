@@ -2,6 +2,19 @@
 
 A new Flutter project using iTunes API for Music Player.
 
+## Getting Started for Flutter
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+
 ## Try It with Demo Application
 
 
@@ -32,22 +45,47 @@ This music player app is supported by the amazing features.
 
 ## Requirements to Build The App
 
-### Getting Started for Flutter
+### [Get the Flutter SDK](https://docs.flutter.dev/get-started/install)
 
-This project is a starting point for a Flutter application.
+Download the following installation bundle to get the latest stable release of the Flutter SDK, see : https://docs.flutter.dev/get-started/install.
 
-A few resources to get you started if this is your first Flutter project:
+For other release channels, and older builds, see the SDK releases page : https://docs.flutter.dev/development/tools/sdk/releases.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### System Requirements
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To install and run Flutter, your development environment must meet these minimum requirements :
+
+#### [MacOS](https://docs.flutter.dev/get-started/install/macos)
+- [x] <strong>Operating Systems</strong>: macOS
+- [x] <strong>Disk Space</strong>: 2.8 GB (does not include disk space for IDE/tools).
+- [x] <strong>Tools</strong>: Flutter uses `git` for installation and upgrade. We recommend installing [Xcode](https://developer.apple.com/xcode/), which includes `git`, but you can also [install git separately](https://git-scm.com/download/mac).
+
+#### [Windows](https://docs.flutter.dev/get-started/install/windows)
+- [x] <strong>Operating Systems</strong>: Windows 7 SP1 or later (64-bit), x86-64 based.
+- [x] <strong>Disk Space</strong>: 1.64 GB (does not include disk space for IDE/tools).
+- [x] <strong>Tools</strong>: Flutter depends on these tools being available in your environment. [Windows PowerShell 5.0](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell) or newer (this is pre-installed with Windows 10). [Git for Windows 2.x](https://git-scm.com/download/win), with the Use <strong>Git from the Windows Command Prompt</strong> option.
+
+#### [Linux](https://docs.flutter.dev/get-started/install/linux)
+- [x] <strong>Operating Systems</strong>: Linux (64-bit)
+- [x] <strong>Disk Space</strong>: 600 MB (does not include disk space for IDE/tools).
+- [x] <strong>Tools</strong>: Flutter depends on these command-line tools being available in your environment, like : `bash` `curl` `file` `git 2.x` `mkdir` `rm` `unzip` `which` `xz-utils` `zip`.
+- [x] <strong>Shared libraries</strong>: Flutter test command depends on this library being available in your environment. `libGLU.so.1` - provided by mesa packages such as `libglu1-mesa` on Ubuntu/Debian and `mesa-libGLU` on Fedora.
+
+#### [Chrome OS](https://docs.flutter.dev/get-started/install/chromeos)
+- [x] <strong>Operating Systems</strong>: Chrome OS (64-bit) with [Linux (Beta)](https://support.google.com/chromebook/answer/9145439) turned on
+- [x] <strong>Disk Space</strong>: 600 MB (does not include disk space for IDE/tools).
+- [x] <strong>Tools</strong>: Flutter depends on these command-line tools being available in your environment, like : `bash` `curl` `git 2.x` `mkdir` `rm` `unzip` `which` `xz-utils`.
+- [x] <strong>Shared libraries</strong>: Flutter test command depends on this library being available in your environment. `libGLU.so.1` - provided by mesa packages such as `libglu1-mesa` on Ubuntu/Debian.
+
+### Flutter & Tools Version
+> Flutter 2.10.2 
+> Tools • Dart 2.16.
+> Tools • Android SDK 31.0.0
+> Tools • CocoaPods 1.11.2
 
 ### Flutter Packages Dependency
 
-Dependencies are one of the core concepts of the [pub package manager](https://dart.dev/guides/packages). A dependency is another package that your package needs in order to work. Dependencies are specified in your [pubspec](https://dart.dev/tools/pub/pubspec). You list only <i>immediate dependencies<i> — the software that your package uses directly. Pub handles [transitive dependencies](https://dart.dev/tools/pub/glossary#transitive-dependency) for you.
+Dependencies are one of the core concepts of the [pub package manager](https://dart.dev/guides/packages). A dependency is another package that your package needs in order to work. Dependencies are specified in your [pubspec](https://dart.dev/tools/pub/pubspec). You list only <i>immediate dependencies</i> — the software that your package uses directly. Pub handles [transitive dependencies](https://dart.dev/tools/pub/glossary#transitive-dependency) for you.
 
 #### State Management, Route Management, Dependency Injection, & Utility 
 
@@ -153,7 +191,7 @@ dart pub global activate flutter_cors
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 ```
 
-#### 3. Run `flutter_cors` for disable
+#### 3. Run `flutter_cors` for disable CORS
 
 ```bash
 fluttercors --disable
