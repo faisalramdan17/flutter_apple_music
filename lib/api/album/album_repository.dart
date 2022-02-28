@@ -14,7 +14,7 @@ class AlbumRepository implements IAlbumRepository {
   Future<Album> getTopAlbums() async {
     const String entity = "album";
     const String id =
-        "951996691,  397934108, 126411124, 252239625, 1062085272, 463996386";
+        "951996691,397934108,126411124,252239625,1062085272,463996386";
 
     final responseAlbum =
         await provider.getTopAlbums("/lookup?id=$id&entity=$entity&limit=1");
