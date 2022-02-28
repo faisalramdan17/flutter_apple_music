@@ -53,35 +53,40 @@ For other release channels, and older builds, see the SDK releases page : https:
 
 ### System Requirements
 
-To install and run Flutter, your development environment must meet these minimum requirements :
+To install and run Flutter, your development environment must meet these minimum requirements and IDE software :
 
 #### [MacOS](https://docs.flutter.dev/get-started/install/macos)
 - [x] <strong>Operating Systems</strong>: macOS
 - [x] <strong>Disk Space</strong>: 2.8 GB (does not include disk space for IDE/tools).
+- [x] <strong>IDE Software</strong>: [Visual Studio Code](https://code.visualstudio.com/download), [Android Studio](https://developer.android.com/studio) (or [IntelliJ](https://www.jetbrains.com/idea/download/)), and [Xcode](https://itunes.apple.com/us/app/xcode/id497799835).
 - [x] <strong>Tools</strong>: Flutter uses `git` for installation and upgrade. We recommend installing [Xcode](https://developer.apple.com/xcode/), which includes `git`, but you can also [install git separately](https://git-scm.com/download/mac).
 
 #### [Windows](https://docs.flutter.dev/get-started/install/windows)
 - [x] <strong>Operating Systems</strong>: Windows 7 SP1 or later (64-bit), x86-64 based.
 - [x] <strong>Disk Space</strong>: 1.64 GB (does not include disk space for IDE/tools).
+- [x] <strong>IDE Software</strong>: [Visual Studio Code](https://code.visualstudio.com/download) and [Android Studio](https://developer.android.com/studio) (or [IntelliJ](https://www.jetbrains.com/idea/download/)).
 - [x] <strong>Tools</strong>: Flutter depends on these tools being available in your environment. [Windows PowerShell 5.0](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-windows-powershell) or newer (this is pre-installed with Windows 10). [Git for Windows 2.x](https://git-scm.com/download/win), with the Use <strong>Git from the Windows Command Prompt</strong> option.
 
 #### [Linux](https://docs.flutter.dev/get-started/install/linux)
 - [x] <strong>Operating Systems</strong>: Linux (64-bit)
 - [x] <strong>Disk Space</strong>: 600 MB (does not include disk space for IDE/tools).
+- [x] <strong>IDE Software</strong>: [Visual Studio Code](https://code.visualstudio.com/download) and [Android Studio](https://developer.android.com/studio) (or [IntelliJ](https://www.jetbrains.com/idea/download/)).
 - [x] <strong>Tools</strong>: Flutter depends on these command-line tools being available in your environment, like : `bash` `curl` `file` `git 2.x` `mkdir` `rm` `unzip` `which` `xz-utils` `zip`.
 - [x] <strong>Shared libraries</strong>: Flutter test command depends on this library being available in your environment. `libGLU.so.1` - provided by mesa packages such as `libglu1-mesa` on Ubuntu/Debian and `mesa-libGLU` on Fedora.
 
 #### [Chrome OS](https://docs.flutter.dev/get-started/install/chromeos)
 - [x] <strong>Operating Systems</strong>: Chrome OS (64-bit) with [Linux (Beta)](https://support.google.com/chromebook/answer/9145439) turned on
 - [x] <strong>Disk Space</strong>: 600 MB (does not include disk space for IDE/tools).
+- [x] <strong>IDE Software</strong>: [Visual Studio Code](https://code.visualstudio.com/download) and [Android Studio](https://developer.android.com/studio) (or [IntelliJ](https://www.jetbrains.com/idea/download/)).
 - [x] <strong>Tools</strong>: Flutter depends on these command-line tools being available in your environment, like : `bash` `curl` `git 2.x` `mkdir` `rm` `unzip` `which` `xz-utils`.
 - [x] <strong>Shared libraries</strong>: Flutter test command depends on this library being available in your environment. `libGLU.so.1` - provided by mesa packages such as `libglu1-mesa` on Ubuntu/Debian.
 
+
 ### Flutter & Tools Version
-> Flutter 2.10.2 
-> Tools • Dart 2.16.
-> Tools • Android SDK 31.0.0
-> Tools • CocoaPods 1.11.2
+>Flutter 2.10.2 
+>Tools • Dart 2.16.
+>Tools • Android SDK 31.0.0
+>Tools • CocoaPods 1.11.2
 
 ### Flutter Packages Dependency
 
@@ -135,10 +140,24 @@ The Partners Program allows you to earn a commission on qualifying revenue gener
 To search for content from a field in your website and display the results in your website, you must create a search field that passes a fully-qualified URL content request to the iTunes Store, parse the JavaScript Object Notation (JSON) format returned from the search, and display the results in your website, 
 see : https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api.
 
+## File & Folder Structure
+
+There are two files and five different folders. Each of them has own specific function.
+
+### Files
+1) **main.dart**: It is the main file of applications developed using the Flutter SDK.
+2) **core.dart**: This is the library mechanism that will export all library each of **xcore,dart** file in ordert to make simple and clean code when import library.
+
+### Folders
+1) **api**: Contains providers and repositories for handle API communication from webservice or restful API.
+2) **app**: Contains the pure GetX State Management for implement business logic, presentation logic and UI widget with **controllers** and **views**. And also intelligent dependency injection with **bindings**
+3) **models**: Contains generated models and serializers from JSON that consisted with data on any variable and collections.
+4) **routes**: Contains the pure GetX Route Management for navigation between pages.
+5) **shared**: Contains configuration with constants, utilities, extentions, theme style, popup dialogs, and global widgets for the Flutter project.
 
 ## Instructions to Build and Deploy The App
 
-### Set up 
+### Set Up & Running
 
 #### 1. Clone The Github Repo
 
@@ -153,12 +172,11 @@ $ cd kuncie_music
 flutter run
 ```
 
-#### 3. Test The App for Automated Unit Testing
+#### 3. Automated Unit Testing
 
 ```bash
 flutter test
 ```
-
 
 
 ## Solving Errors
@@ -196,3 +214,22 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 ```bash
 fluttercors --disable
 ```
+
+# Support Me
+- Subscribe → https://bit.ly/flutter-free-course
+- Download My Apps → https://codingyourlife.gumroad.com
+- PayPal → https://www.paypal.com/paypalme/faisalramdan17
+- Buy Me a Coffee → https://www.buymeacoffee.com/faisalramdan17
+- My Portfolio on Codecanyon → https://codecanyon.net/user/codingyourlife/portfolio
+
+# About Me
+- Email → faisalramdan.id@gmail.com
+- Website → https://codingyourlife.id
+- Youtube → https://bit.ly/flutter-free-course
+- GitHub → https://github.com/faisalramdan17
+- Contact us on Telegram → https://t.me/faisalramdan17
+- Facebook → https://www.facebook.com/codingyourlife.id
+- Instagram → https://instagram.com/faisalramdan17 & https://instagram.com/codingyourlife.id
+- LinkedIn → https://www.linkedin.com/in/faisalramdan17
+
+Thanks so much!
