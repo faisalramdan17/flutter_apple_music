@@ -2,18 +2,11 @@
 
 A new Flutter project using iTunes API for Music Player.
 
-## Getting Started for Flutter
+## Try It with Demo Application
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## The Sceenshots of Application
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 ## Supported Devices (OS)
 
@@ -30,66 +23,102 @@ To find out if your device is compatible with the app, check the list of support
 
 This music player app is supported by the amazing features.
 
-- ✅ Browse albums and songs then play music with selecting song.
-- ✅ Search song by artist name then play music with selecting song.
-- ✅ Play music with run in the background or with the screen turned off.
+- [x] Browse albums and songs then play music with selecting song.
+- [x] Search song by artist name then play music with selecting song.
+- [x] Play music with run in the background or with the screen turned off.
 - [x] Music controls available : Play, Pause, Stop, Seek (Progress Indicator), Fast (Rewind & Forward) and Repeat One Song. 
+- [x] When tap a song, a media player should show up at the bottom of the screen and start to play the preview for that song.
 - [x] Music controls interacting with headset buttons, the Android lock screen and notification, iOS control center, wearables, AndroidAuto (CarPlay) or smart watch.
 
 ## Requirements to Build The App
 
-### Dependency
+### Getting Started for Flutter
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+
+### Flutter Packages Dependency
+
+Dependencies are one of the core concepts of the [pub package manager](https://dart.dev/guides/packages). A dependency is another package that your package needs in order to work. Dependencies are specified in your [pubspec](https://dart.dev/tools/pub/pubspec). You list only <i>immediate dependencies<i> — the software that your package uses directly. Pub handles [transitive dependencies](https://dart.dev/tools/pub/glossary#transitive-dependency) for you.
 
 #### State Management, Route Management, Dependency Injection, & Utility 
 
-- [get](https://pub.dartlang.org/packages/get) : It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.
-- [intl](https://pub.dartlang.org/packages/intl) => Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
-- [url_strategy](https://pub.dartlang.org/packages/url_strategy)
-- [url_launcher](https://pub.dartlang.org/packages/url_launcher)
+- [x] [get](https://pub.dartlang.org/packages/get) : It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.
+- [x] [intl](https://pub.dartlang.org/packages/intl) : Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
+- [x] [url_strategy](https://pub.dartlang.org/packages/url_strategy) : Package for Flutter apps that allows setting the web URL strategy with a single line of code. To remove the leading hash (#) from the URL of your Flutter web app.
+- [x] [url_launcher](https://pub.dartlang.org/packages/url_launcher) : A Flutter plugin for launching a URL. Supports iOS, Android, web, Windows, macOS, and Linux.
 
 #### Audio Services
 
-- [just_audio](https://pub.dartlang.org/packages/just_audio)
-- [just_audio_libwinmedia](https://pub.dartlang.org/packages/just_audio_libwinmedia)
-- [audio_service](https://pub.dartlang.org/packages/audio_service)
+- [x] [just_audio](https://pub.dartlang.org/packages/just_audio) : A feature-rich audio player for Flutter. Loop, clip and concatenate any sound from any source (asset/file/URL/stream) in a variety of audio formats with gapless playback.
+- [x] [just_audio_libwinmedia](https://pub.dartlang.org/packages/just_audio_libwinmedia) : Libwinmedia implementation of just_audio for windows & linux. This implementation is endorsed and therefore doesn't require a direct dependency.
+- [x] [audio_service](https://pub.dartlang.org/packages/audio_service) : Flutter plugin to play audio in the background while the screen is off.
 
 #### Images Asset & Library
 
-- [lottie](https://pub.flutter-io.cn/packages/lottie)
-- [cached_network_image](https://pub.flutter-io.cn/packages/cached_network_image)
-- [transparent_image](https://pub.flutter-io.cn/packages/transparent_image)
+- [x] [lottie](https://pub.flutter-io.cn/packages/lottie) : Lottie is a mobile library for Android and iOS that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile.
+- [x] [cached_network_image](https://pub.flutter-io.cn/packages/cached_network_image) : A flutter library to show images from the internet and keep them in the cache directory.
+- [x] [transparent_image](https://pub.flutter-io.cn/packages/transparent_image) : A simple transparent image. Represented as a Uint8List, which was originally extracted from the Flutter codebase (was private in the test package).
 
 #### Fonts & Icons
 
-- [google_fonts](https://pub.dartlang.org/packages/google_fonts)
-- [iconsax](https://pub.dartlang.org/packages/iconsax)
-- [font_awesome_flutter](https://pub.dartlang.org/packages/font_awesome_flutter)
+- [x] [google_fonts](https://pub.dartlang.org/packages/google_fonts) : The google_fonts package for Flutter allows you to easily use any of the thousands of fonts available from fonts.google.com in your Flutter app.
+- [x] [iconsax](https://pub.dartlang.org/packages/iconsax) : Iconsax for flutter (1000+ icons 6 diferent styles, total 6000+ icons). the official icons of the Vuesax framework.
+- [x] [font_awesome_flutter](https://pub.dartlang.org/packages/font_awesome_flutter) : The Font Awesome Icon pack available as set of Flutter Icons.
 
 #### Animations & Elements
 
-- [flutter_animated_dialog](https://pub.dartlang.org/packages/flutter_animated_dialog)
-- [flutter_spinkit](https://pub.dartlang.org/packages/flutter_spinkit)
-- [fade_shimmer](https://pub.dartlang.org/packages/fade_shimmer)
-- [badges](https://pub.dartlang.org/packages/badges)
-- [step_progress_indicator](https://pub.dartlang.org/packages/step_progress_indicator)
-- [liquid_pull_to_refresh](https://pub.dartlang.org/packages/liquid_pull_to_refresh)
+- [x] [flutter_animated_dialog](https://pub.dartlang.org/packages/flutter_animated_dialog) : A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations. Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
+- [x] [flutter_spinkit](https://pub.dartlang.org/packages/flutter_spinkit) : A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin's SpinKit.
+- [x] [fade_shimmer](https://pub.dartlang.org/packages/fade_shimmer) : A fade shimmer library to implement loading like latest facebook loading effect.
+- [x] [badges](https://pub.dartlang.org/packages/badges) : A flutter package for creating badges. Badges can be used for an additional marker for any widget, e.g. show a number of items in a shopping cart.
+- [x] [step_progress_indicator](https://pub.dartlang.org/packages/step_progress_indicator) : Bar indicator made of a series of selected and unselected steps
+- [x] [liquid_pull_to_refresh](https://pub.dartlang.org/packages/liquid_pull_to_refresh) : A beautiful and custom refresh indicator with some cool animations and transitions for flutter.
+
+
+### [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api)
+
+#### Overview
+
+The Search API allows you to place search fields in your website to search for content within the iTunes Store and Apple Books Store. You can search for a variety of content; including books, movies, podcasts, music, music videos, audiobooks, and TV shows. You can also call an ID-based lookup request to create mappings between your content library and the digital catalog. Developers may use promotional content in the API, including previews of songs, music videos, album art and App icons only to promote store content and not for entertainment purposes. Use of sound samples and other assets from the API must be proximate to a store badge. Terms and conditions apply.
+
+The Partners Program allows you to earn a commission on qualifying revenue generated by clicks initiated from your website or app into the iTunes Store and Apple Books Store. For more information on the Partners Program, see http://www.apple.com/itunes/affiliates.
+
+#### Searching
+
+To search for content from a field in your website and display the results in your website, you must create a search field that passes a fully-qualified URL content request to the iTunes Store, parse the JavaScript Object Notation (JSON) format returned from the search, and display the results in your website, 
+see : https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api.
 
 
 ## Instructions to Build and Deploy The App
 
 ### Set up 
 
-#### 1. Clone The Repo
+#### 1. Clone The Github Repo
 
 ```bash
 $ git clone https://github.com/faisalramdan17/kuncie_music.git
 $ cd kuncie_music
 ```
 
-#### 2. Running
+#### 2. Running The App
 
 ```bash
 flutter run
+```
+
+#### 3. Test The App for Automated Unit Testing
+
+```bash
+flutter test
 ```
 
 
@@ -100,22 +129,31 @@ There are several potential errors when run or debug this music player app and y
 
 ###  XMLHttpRequest (API Cors) Error in Flutter Web
 
-It seems like `CORS error` is well-known issue in the web field. But it could be critical error.
+It seems like `CORS error` is well-known issue in the web field. But it could be critical error. The error message is usually something like : 
+
+```
+Access to XMLHttpRequest at 'https://itunes.apple.com' from origin 'http://localhost:59269' has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header has a value 'http://localhost:60893' that is not equal to the supplied origin.
+```
 
 You can check forum discusing at stackoverflow.com by clicking this link :
 https://stackoverflow.com/questions/65630743/how-to-solve-flutter-web-api-cors-error-only-with-dart-code/66879350
 
 In order to make the process easier I highly recommend to use `flutter_cors` Dart Package.
-You can check this link : https://pub.dev/packages/flutter_cors
+Check this link : https://pub.dev/packages/flutter_cors
 
+#### 1. Install `flutter_cors` Dart Package.
 
 ```bash
 dart pub global activate flutter_cors
 ```
 
+#### 2. Set Paths
+
 ```bash
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 ```
+
+#### 3. Run `flutter_cors` for disable
 
 ```bash
 fluttercors --disable
