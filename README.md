@@ -18,8 +18,8 @@ samples, guidance on mobile development, and a full API reference.
 ## Try It with Demo Application
 
 <div>
-<a href='https://drive.google.com/file/d/1_YAcC0QvNV9KtzJDII1QphHjADbWHVqL/view?usp=sharing'><img alt='Download APK' src='assets/demo/download_apk.png' height='48px'/></a>
-<a href='https://applemusic.codingyourlife.id'><img alt='Launch Web App' src='assets/demo/launch_pwa.png' height='48px'/></a>
+<a href='https://drive.google.com/file/d/1_YAcC0QvNV9KtzJDII1QphHjADbWHVqL/view?usp=sharing' target="_blank"><img alt='Download APK' src='assets/demo/download_apk.png' height='48px'/></a>
+<a href='https://applemusic.codingyourlife.id' target="_blank"><img alt='Launch Web App' src='assets/demo/launch_pwa.png' height='48px'/></a>
 </div>
 
 ## The Sceenshots of Application
