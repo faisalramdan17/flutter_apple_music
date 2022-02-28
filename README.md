@@ -91,10 +91,10 @@ To install and run Flutter, your development environment must meet these minimum
 
 
 ### Flutter & Tools Version
->Flutter 2.10.2
->Tools • Dart 2.16.1
->Tools • Android SDK 31.0.0
->Tools • CocoaPods 1.11.2
+* `Flutter 2.10.2`
+* `Tools • Dart 2.16.1`
+* `Tools • Android SDK 31.0.0`
+* `Tools • CocoaPods 1.11.2`
 
 ### Flutter Packages Dependency
 

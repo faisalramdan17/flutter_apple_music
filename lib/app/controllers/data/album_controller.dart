@@ -24,11 +24,6 @@ class AlbumController extends SuperController<Album> {
   }
 
   @override
-  void onClose() {
-    super.onClose();
-  }
-
-  @override
   void onDetached() {
     // Implement onDetached
   }

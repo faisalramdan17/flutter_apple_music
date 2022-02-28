@@ -15,8 +15,6 @@ class AppPages {
         SongBinding(),
         AlbumBinding(),
       ],
-      // participatesInRootNavigator: true,
-      // preventDuplicates: true,
     ),
     GetPage(
       name: Routes.SEARCH,

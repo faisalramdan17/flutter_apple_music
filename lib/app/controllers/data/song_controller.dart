@@ -42,11 +42,6 @@ class SongController extends SuperController<Song> {
   }
 
   @override
-  void onClose() {
-    super.onClose();
-  }
-
-  @override
   void onDetached() {
     // Implement onDetached
   }

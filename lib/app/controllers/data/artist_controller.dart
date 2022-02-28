@@ -21,11 +21,6 @@ class ArtistController extends SuperController<Artist> {
   }
 
   @override
-  void onClose() {
-    super.onClose();
-  }
-
-  @override
   void onDetached() {
     // Implement onDetached
   }
