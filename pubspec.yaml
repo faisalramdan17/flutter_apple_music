@@ -11,66 +11,40 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # GetX is an extra-light and powerful solution for Flutter. It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.
-  get: ^4.6.1  # https://pub.dev/packages/get
+  ### State Management, Route Management, Dependency Injection, & Utility 
+  get: ^4.6.1  # https://pub.dev/packages/get => GetX is an extra-light and powerful solution for Flutter. It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.
+  intl: ^0.17.0 # https://pub.dev/packages/intl => Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
+  url_strategy:  # https://pub.dev/packages/url_strategy => Package for Flutter apps that allows setting the web URL strategy with a single line of code. To remove the leading hash (#) from the URL of your Flutter web app  
+  url_launcher: ^6.0.18 # https://pub.dev/packages/url_launcher => A Flutter plugin for launching a URL. Supports iOS, Android, web, Windows, macOS, and Linux.
 
-  # Provides internationalization and localization facilities, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
-  intl: ^0.17.0 # https://pub.dev/packages/intl
+  ### Audio Services
+  just_audio: ^0.9.20 # https://pub.dev/packages/just_audio => A feature-rich audio player for Flutter. Loop, clip and concatenate any sound from any source (asset/file/URL/stream) in a variety of audio formats with gapless playback.
+  just_audio_libwinmedia: ^0.0.4 # https://pub.dev/packages/just_audio_libwinmedia => Libwinmedia implementation of just_audio for windows & linux. This implementation is endorsed and therefore doesn't require a direct dependency.
+  audio_service: ^0.18.3 # https://pub.dev/packages/audio_service => Flutter plugin to play audio in the background while the screen is off.
 
-  # Package for Flutter apps that allows setting the web URL strategy with a single line of code. To remove the leading hash (#) from the URL of your Flutter web app
-  url_strategy:  # https://pub.dev/packages/url_strategy
+  ### Images Asset & Library
+  lottie: ^1.2.2  # https://pub.dev/packages/lottie => Lottie is a mobile library for Android and iOS that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile!
+  cached_network_image: ^3.2.0 # https://pub.dev/packages/cached_network_image => A flutter library to show images from the internet and keep them in the cache directory.
+  transparent_image: ^2.0.0 # https://pub.dev/packages/transparent_image => A simple transparent image. Represented as a Uint8List, which was originally extracted from the Flutter codebase (was private in the test package).
 
-  # A Flutter plugin for launching a URL. Supports iOS, Android, web, Windows, macOS, and Linux.
-  url_launcher: ^6.0.18 # https://pub.dev/packages/url_launcher
+  #### Fonts & Icons
+  google_fonts: ^2.2.0 # https://pub.dev/packages/google_fonts => The google_fonts package for Flutter allows you to easily use any of the thousands of fonts available from fonts.google.com in your Flutter app.
+  iconsax: ^0.0.8 # https://pub.dev/packages/iconsax => Iconsax for flutter (1000+ icons 6 diferent styles, total 6000+ icons). the official icons of the Vuesax framework
+  font_awesome_flutter: ^9.2.0 # https://pub.dev/packages/font_awesome_flutter => The Font Awesome Icon pack available as set of Flutter Icons.
 
-  # Lottie is a mobile library for Android and iOS that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile!
-  lottie: ^1.2.2  # https://pub.dev/packages/lottie
-
-  # The google_fonts package for Flutter allows you to easily use any of the thousands of fonts available from fonts.google.com in your Flutter app.
-  google_fonts: ^2.2.0 # https://pub.dev/packages/google_fonts
-
-  # Iconsax for flutter (1000+ icons 6 diferent styles, total 6000+ icons). the official icons of the Vuesax framework
-  iconsax: ^0.0.8 # https://pub.dev/packages/iconsax
-
-  # The Font Awesome Icon pack available as set of Flutter Icons.
-  font_awesome_flutter: ^9.2.0 # https://pub.dev/packages/font_awesome_flutter
-
-  # A simple transparent image. Represented as a Uint8List, which was originally extracted from the Flutter codebase (was private in the test package).
-  transparent_image: ^2.0.0 # https://pub.dev/packages/transparent_image
-
-  # A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations. Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
-  flutter_animated_dialog: ^2.0.1 # https://pub.dev/packages/flutter_animated_dialog
-
-  # A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin's SpinKit.
-  flutter_spinkit: ^5.1.0 # https://pub.dev/packages/flutter_spinkit
-
-  # A fade shimmer library to implement loading like latest facebook loading effect.
-  fade_shimmer: ^2.0.1 # https://pub.dev/packages/fade_shimmer
-
-  # A flutter package for creating badges. Badges can be used for an additional marker for any widget, e.g. show a number of items in a shopping cart.
-  badges: ^2.0.2 # https://pub.dev/packages/badges
-
-  # Bar indicator made of a series of selected and unselected steps
-  step_progress_indicator: ^1.0.2 # https://pub.dev/packages/step_progress_indicator
-
-  # A beautiful and custom refresh indicator with some cool animations and transitions for flutter.
-  liquid_pull_to_refresh: ^3.0.1 # https://pub.dev/packages/liquid_pull_to_refresh
-
-  # A flutter library to show images from the internet and keep them in the cache directory.
-  cached_network_image: ^3.2.0 # https://pub.dev/packages/cached_network_image
-
-  # A feature-rich audio player for Flutter. Loop, clip and concatenate any sound from any source (asset/file/URL/stream) in a variety of audio formats with gapless playback.
-  just_audio: ^0.9.20 # https://pub.dev/packages/just_audio
-
-  # Flutter plugin to play audio in the background while the screen is off.
-  audio_service: ^0.18.3 # https://pub.dev/packages/audio_service
+  #### Animations & Elements
+  flutter_animated_dialog: ^2.0.1 # https://pub.dev/packages/flutter_animated_dialog => A new Flutter dialog with a series of beautiful animations, slide fade rotate size scale rotate3D animations. Dialog barrier include status bar at the top of screen, solved the problem of default dialog.
+  flutter_spinkit: ^5.1.0 # https://pub.dev/packages/flutter_spinkit => A collection of loading indicators animated with flutter. Heavily inspired by @tobiasahlin's SpinKit.
+  fade_shimmer: ^2.0.1 # https://pub.dev/packages/fade_shimmer => A fade shimmer library to implement loading like latest facebook loading effect.
+  badges: ^2.0.2 # https://pub.dev/packages/badges => A flutter package for creating badges. Badges can be used for an additional marker for any widget, e.g. show a number of items in a shopping cart.
+  step_progress_indicator: ^1.0.2 # https://pub.dev/packages/step_progress_indicator => Bar indicator made of a series of selected and unselected steps
+  liquid_pull_to_refresh: ^3.0.1 # https://pub.dev/packages/liquid_pull_to_refresh => A beautiful and custom refresh indicator with some cool animations and transitions for flutter.
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  flutter_lints: ^1.0.0 # https://pub.dev/packages/flutter_lints
+  flutter_lints: ^1.0.0 # https://pub.dev/packages/flutter_lints => The "flutter_lints" package below contains a set of recommended lints.
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

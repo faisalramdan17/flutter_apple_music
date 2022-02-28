@@ -29,21 +29,24 @@ class NowPlayingView extends GetView<NowPlayingController> {
   }
 
   Widget _bodyHeader(SongItem state) {
-    return Column(
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: 320,
-          child: Stack(
-            children: <Widget>[
-              AlbumArtwork(imageUrl: state.artworkUrl100),
-              const ControlsBoard(),
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            height: 320,
+            child: Stack(
+              children: <Widget>[
+                AlbumArtwork(imageUrl: state.artworkUrl100),
+                const ControlsBoard(),
+              ],
+            ),
           ),
-        ),
-        const SizedBox(height: 40),
-        const PreferencesBoard(),
-      ],
+          const SizedBox(height: 40),
+          const PreferencesBoard(),
+          const SizedBox(height: 40),
+        ],
+      ),
     );
   }
 

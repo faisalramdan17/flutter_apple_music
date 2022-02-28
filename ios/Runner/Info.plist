@@ -49,6 +49,14 @@
 		<string>audio</string>
 	</array>
 
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsForMedia</key>
+		<true/>
+	</dict>
+
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 	<string>https</string>
