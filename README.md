@@ -24,8 +24,8 @@ samples, guidance on mobile development, and a full API reference.
 
 ## The Sceenshots of Application
 
-<img src="assets/screenshots/home-started.png" width="27%" /> <span width="10%"><span> <img src="assets/screenshots/home-playing.png" width="27%" /> <span style="width:5%"><span> <img src="assets/screenshots/now-playing.png" width="27%" />
-<img src="assets/screenshots/notification.png" width="32%" /> <img src="assets/screenshots/search-started.png" width="32%" /> <img src="assets/screenshots/search-result.png" width="32%" />
+<img src="assets/screenshots/1-home-started.png" width="32%" /> <img src="assets/screenshots/2-home-playing.png" width="32%" /> <img src="assets/screenshots/3-now-playing.png" width="32%" />
+<img src="assets/screenshots/4-notification.png" width="32%" /> <img src="assets/screenshots/5-search-started.png" width="32%" /> <img src="assets/screenshots/6-search-result.png" width="32%" />
 
 ## Supported Devices (OS)
 
