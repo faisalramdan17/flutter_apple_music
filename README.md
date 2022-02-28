@@ -18,8 +18,8 @@ samples, guidance on mobile development, and a full API reference.
 ## Try It with Demo Application
 
 <div>
-<a href='#'><img alt='Download APK' src='assets/demo/google_play.png' height='48px'/></a>
-<a href='#'><img alt='Launch Web App' src='assets/demo/launch_pwa.png' height='48px'/></a>
+<a href='https://drive.google.com/file/d/1_YAcC0QvNV9KtzJDII1QphHjADbWHVqL/view?usp=sharing'><img alt='Download APK' src='assets/demo/download_apk.png' height='48px'/></a>
+<a href='https://applemusic.codingyourlife.id'><img alt='Launch Web App' src='assets/demo/launch_pwa.png' height='48px'/></a>
 </div>
 
 ## The Sceenshots of Application
@@ -33,8 +33,11 @@ To find out if your device is compatible with the app, check the list of support
 
 - iOS Mobile App : iOS Version 9.0 (Monarch) & above
 - Android Mobile App : Android 4.4 KitKat (API level 19) & above
-- Web App (Mobile Size-Mode) : Chrome 84 & above
 - MacOX Desktop App (Mobile Size-Mode) : macOS Sierra 10.12.2 & above
+- Web App (Mobile Size-Mode) : Chrome 84 & above
+- Web App (Mobile Size-Mode) : Firefox 72.0 & above
+- Web App (Mobile Size-Mode) : Safari on El Capitan & above	
+- Web App (Mobile Size-Mode) : Edge 1.2.0 & above
 <!-- - Windows Desktop App (Mobile Size-Mode) : Windows 7 & above -->
 
 ## Supported Features
@@ -191,25 +194,175 @@ When you’re ready to deploy or prepare a release version of your app, this Ins
 
 #### [Android App](https://docs.flutter.dev/deployment/android)
 
+**Note**: For the complete guide provides a step-by-step walkthrough of build APK and releasing a Flutter app to the Play Store, For more details, see https://docs.flutter.dev/deployment/android.
+
+##### Build an APK
+
+From the command line:
+
+1) Enter `cd [project]`
+2) Run `flutter build apk --split-per-abi`. (The `flutter build` command defaults to `--release`.)
+
+This command results in three APK files:
+
+* `[project]/build/app/outputs/apk/release/app-armeabi-v7a-release.apk`
+* `[project]/build/app/outputs/apk/release/app-arm64-v8a-release.apk`
+* `[project]/build/app/outputs/apk/release/app-x86_64-release.apk`
+
+
+##### Build an app bundle
+
+From the command line:
+
+1) Enter `cd [project]`
+2) Run `flutter build appbundle`. (Running `flutter build` defaults to a release build.)
+
+The release bundle for your app is created at `[project]/build/app/outputs/bundle/release/app.aab`.
+
+By default, the app bundle contains your Dart code and the Flutter runtime compiled for armeabi-v7a (ARM 32-bit), arm64-v8a (ARM 64-bit), and x86-64 (x86 64-bit).
+
+
 #### [iOS App](https://docs.flutter.dev/deployment/ios)
+
+**Note**: For the complete guide provides a step-by-step walkthrough of releasing a Flutter app to the App Store. For more details, see https://docs.flutter.dev/deployment/ios.
+
+In Xcode, configure the app version and build:
+
+1) In Xcode, open `Runner.xcworkspace` in your app’s `ios` folder.
+2) Select **Runner** in the Xcode project navigator, then select the **Runner** target in the settings view sidebar.
+3) In the Identity section, update the **Version** to the user-facing version number you wish to publish.
+4) In the Identity section, update the **Build** identifier to a unique build number used to track this build on [App Store Connect](https://appstoreconnect.apple.com/). Each upload requires a unique build number.
+
+Finally, create a build archive and upload it to App Store Connect:
+
+1) Run `flutter build ipa` to produce a build archive.
+2) Open `build/ios/archive/MyApp.xcarchive` in Xcode.
+3) Click the **Validate App** button. If any issues are reported, address them and produce another build. You can reuse the same build ID until you upload an archive.
+4) After the archive has been successfully validated, click **Distribute App**. You can follow the status of your build in the Activities tab of your app’s details page on [App Store Connect](https://appstoreconnect.apple.com/).
 
 #### [MacOS App](https://docs.flutter.dev/deployment/macos)
 
-#### Windows App
+**Note**: For the complete guide provides a step-by-step walkthrough of releasing a Flutter app to the App Store. For more details, see https://docs.flutter.dev/deployment/macos.
+
+In Xcode, configure the app version and build:
+
+1) Open Runner.xcworkspace in your app’s macos folder. To do this from the command line, run the following command from the base directory of your application project.
+```bash
+open macos/Runner.xcworkspace
+```
+2) Select **Runner** in the Xcode project navigator, then select the **Runner** target in the settings view sidebar.
+3) In the Identity section, update the **Version** to the user-facing version number you wish to publish.
+4) In the Identity section, update the **Build** identifier to a unique build number used to track this build on [App Store Connect](https://appstoreconnect.apple.com/). Each upload requires a unique build number.
+
+Finally, create a build archive and upload it to App Store Connect:
+
+1) Create a release Archive of your application. From the base directory of your application project, run the following.
+```bash
+flutter build macos
+```
+2) Open Xcode and select **Product > Archive** to open the archive created in the previous step.
+3) Click the **Validate App** button. If any issues are reported, address them and produce another build. You can reuse the same build ID until you upload an archive.
+4) After the archive has been successfully validated, click **Distribute App**. You can follow the status of your build in the Activities tab of your app’s details page on [App Store Connect](https://appstoreconnect.apple.com/).
+
+#### [Windows App](https://stackoverflow.com/questions/64291336/how-to-build-release-version-of-windows-app)
+
+**Note**: For the complete guide provides a step-by-step walkthrough of build a Flutter app on windows or create file installer. For more details, see https://docs.flutter.dev/deployment/linux.
+
+You can use `flutter build windows` and it will do the build for you. Make sure to install **Desktop development with C++**.
+
+The build `.exe` file can be found on `...\projectName\build\windows\runner\Release\`
+
+You can use [msix](https://pub.dev/packages/msix) package for build. To build using `msix` you need to enable developer mode on Windows.
+
+Type `start ms-settings:developers` and it will open the setting and enable it.
+
+Open Command prompt (as Administrator if you needed) and navigate to your project directory and type these command
+
+```bash
+flutter build windows
+flutter pub run msix:create
+```
+
+You will get an `.msix` app that will install the usual way windows does.
+
+You can also [configuring your installer](https://pub.dev/packages/msix#github-settings-icon-configuring-your-installer).
+
+
+For more details go to https://flutter.dev/desktop.
+
+The executable can be found in your project under `build\windows\runner<build mode>`. In addition to that executable, you need the following:
+**From the same directory:**
+all the `.dll` files
+the data directory
+
+**The Visual C++ redistributable**
+You can use any of the methods shown in the deployment example walkthroughs on the Microsoft site. If you use the application-local option, you need to copy:
+`msvcp140.dll` `vcruntime140.dll` `vcruntime140_1.dll`
+Place the DLL files in a directory next to the executable and the other DLLs, and bundle them together in a zip file.
 
 #### [Linux App](https://docs.flutter.dev/deployment/linux)
 
+**Note**: For the complete guide provides a step-by-step walkthrough of releasing a Flutter app to [the Snap Store](https://snapcraft.io/store). For more details, see this forum https://stackoverflow.com/questions/64291336/how-to-build-release-version-of-windows-app.
+
+##### Build the snap
+
+Once the `snapcraft.yaml` file is complete, run `snapcraft` as follows from the root directory of the project.
+
+To use the Multipass VM backend:
+
+```bash
+ snapcraft
+```
+
+To use the LXD container backend:
+
+```bash
+ snapcraft --use-lxd
+```
+
+##### Publish
+Once the snap is built, you’ll have a `<name>.snap` file in your root project directory. You can now publish the snap. The process consists of the following:
+
+1) Create a developer account at [snapcraft.io](https://snapcraft.io/), if you haven’t already done so.
+2) Register the app’s name. Registration can be done either using the Snap Store Web UI portal, or from the command line, as follows:
+```bash
+ snapcraft login
+ snapcraft register
+```
+3) Release the app. After reading the next section to learn about selecting a Snap Store channel, push the snap to the store:
+```bash
+ snapcraft upload --release=<channel> <file>.snap
+```
+
+
 #### [Web App](https://docs.flutter.dev/deployment/web)
 
-flutter build ios
+**Note**: For the complete guide provides a step-by-step walkthrough of releasing a Flutter app to the App Store. For more details, see https://docs.flutter.dev/deployment/web.
 
-flutter build apk
+During a typical development cycle, you test an app using `flutter run -d chrome` (for example) at the command line. This builds a debug version of your app.
 
+Build the app for deployment using the `flutter build web` command. You can also choose which renderer to use by using the `--web-renderer` option (See [Web renderers](https://docs.flutter.dev/development/tools/web-renderers)). 
 
+This generates the app, including the assets, and places the files into the `/build/web` directory of the project.
 
-flutter build web
+The release build of a simple app has the following structure:
 
+```bash
+/build/web
+  assets
+    AssetManifest.json
+    FontManifest.json
+    NOTICES
+    fonts
+      MaterialIcons-Regular.ttf
+      <other font files>
+    <image files>
+  index.html
+  main.dart.js
+  main.dart.js.map
+```
 
+Launch a web server (for example, `python -m http.server 8000`, or by using the [dhttpd](https://pub.dev/packages/dhttpd) package), and open the /build/web directory. Navigate to `localhost:8000` in your browser (given the python SimpleHTTPServer example) to view the release version of your app.
 
 ## Solving Errors
 
