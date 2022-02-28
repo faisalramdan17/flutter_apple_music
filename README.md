@@ -174,13 +174,19 @@ $ git clone https://github.com/faisalramdan17/kuncie_music.git
 $ cd kuncie_music
 ```
 
-#### 2. Running The App
+#### 2. Get Packages
+
+```bash
+flutter pub get
+```
+
+#### 3. Running The App
 
 ```bash
 flutter run
 ```
 
-#### 3. Automated Unit Testing
+#### 4. Automated Unit Testing
 
 ```bash
 flutter test
