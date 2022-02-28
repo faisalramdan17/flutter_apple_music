@@ -17,9 +17,15 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Try It with Demo Application
 
+<div>
+<a href='#'><img alt='Download APK' src='assets/demo/google_play.png' height='48px'/></a>
+<a href='#'><img alt='Launch Web App' src='assets/demo/launch_pwa.png' height='48px'/></a>
+</div>
 
 ## The Sceenshots of Application
 
+<img src="assets/screenshots/home-started.png" width="27%" /> <span width="10%"><span> <img src="assets/screenshots/home-playing.png" width="27%" /> <span style="width:5%"><span> <img src="assets/screenshots/now-playing.png" width="27%" />
+<img src="assets/screenshots/notification.png" width="32%" /> <img src="assets/screenshots/search-started.png" width="32%" /> <img src="assets/screenshots/search-result.png" width="32%" />
 
 ## Supported Devices (OS)
 
@@ -29,8 +35,7 @@ To find out if your device is compatible with the app, check the list of support
 - Android Mobile App : Android 4.4 KitKat (API level 19) & above
 - Web App (Mobile Size-Mode) : Chrome 84 & above
 - MacOX Desktop App (Mobile Size-Mode) : macOS Sierra 10.12.2 & above
-- Windows Desktop App (Mobile Size-Mode) : Windows 7 & above
-
+<!-- - Windows Desktop App (Mobile Size-Mode) : Windows 7 & above -->
 
 ## Supported Features
 
@@ -53,7 +58,7 @@ For other release channels, and older builds, see the SDK releases page : https:
 
 ### System Requirements
 
-To install and run Flutter, your development environment must meet these minimum requirements and IDE software :
+To install and run Flutter, your development environment must meet these minimum requirements and IDE software:
 
 #### [MacOS](https://docs.flutter.dev/get-started/install/macos)
 - [x] <strong>Operating Systems</strong>: macOS
@@ -83,8 +88,8 @@ To install and run Flutter, your development environment must meet these minimum
 
 
 ### Flutter & Tools Version
->Flutter 2.10.2 
->Tools • Dart 2.16.
+>Flutter 2.10.2
+>Tools • Dart 2.16.1
 >Tools • Android SDK 31.0.0
 >Tools • CocoaPods 1.11.2
 
@@ -151,7 +156,7 @@ There are two files and five different folders. Each of them has own specific fu
 ### Folders
 1) **api**: Contains providers and repositories for handle API communication from webservice or restful API.
 2) **app**: Contains the pure GetX State Management for implement business logic, presentation logic and UI widget with **controllers** and **views**. And also intelligent dependency injection with **bindings**
-3) **models**: Contains generated models and serializers from JSON that consisted with data on any variable and collections.
+3) **models**: Generated models and serializers from JSON that contains data on any variable and collections.
 4) **routes**: Contains the pure GetX Route Management for navigation between pages.
 5) **shared**: Contains configuration with constants, utilities, extentions, theme style, popup dialogs, and global widgets for the Flutter project.
 
@@ -177,6 +182,33 @@ flutter run
 ```bash
 flutter test
 ```
+
+### Build and Deploy the App
+
+During a typical development cycle, you test an app using `flutter run` at the command line, or by using the **Run** and **Debug** options in your IDE. By default, Flutter builds a debug version of your app.
+
+When you’re ready to deploy or prepare a release version of your app, this Instructions can help:
+
+#### [Android App](https://docs.flutter.dev/deployment/android)
+
+#### [iOS App](https://docs.flutter.dev/deployment/ios)
+
+#### [MacOS App](https://docs.flutter.dev/deployment/macos)
+
+#### Windows App
+
+#### [Linux App](https://docs.flutter.dev/deployment/linux)
+
+#### [Web App](https://docs.flutter.dev/deployment/web)
+
+flutter build ios
+
+flutter build apk
+
+
+
+flutter build web
+
 
 
 ## Solving Errors
@@ -215,14 +247,14 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 fluttercors --disable
 ```
 
-# Support Me
+## Support Me
 - Subscribe → https://bit.ly/flutter-free-course
 - Download My Apps → https://codingyourlife.gumroad.com
 - PayPal → https://www.paypal.com/paypalme/faisalramdan17
 - Buy Me a Coffee → https://www.buymeacoffee.com/faisalramdan17
 - My Portfolio on Codecanyon → https://codecanyon.net/user/codingyourlife/portfolio
 
-# About Me
+## About Me
 - Email → faisalramdan.id@gmail.com
 - Website → https://codingyourlife.id
 - Youtube → https://bit.ly/flutter-free-course
