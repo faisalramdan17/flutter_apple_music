@@ -17,7 +17,7 @@ class NowPlayingController extends SuperController<SongItem> {
         androidNotificationChannelId: 'id.codingyourlife.myapp.channel.audio',
         androidNotificationChannelName: 'Kuncie Music playback',
         androidNotificationOngoing: true,
-        // androidStopForegroundOnPause: true,
+        androidStopForegroundOnPause: true,
       ),
     );
 

@@ -30,6 +30,7 @@ export 'widgets/bottom_bar/bottom_bar.dart';
 export 'widgets/bottom_bar/bottom_bar_item.dart';
 export 'widgets/bottom_bar/bottom_bar_navigation.dart';
 export 'widgets/buttons/action_button.dart';
+
 export 'widgets/commons/app_bar.dart';
 export 'widgets/commons/progress_bar.dart';
 export 'widgets/commons/pull_refresh.dart';
